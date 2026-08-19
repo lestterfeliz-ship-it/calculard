@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        CalculaRD | Calculadoras financieras para República Dominicana
+    </title>
+
+    <meta name="description"
+          content="CalculaRD ofrece calculadoras gratuitas para salario neto, préstamos, liquidación laboral, regalía pascual, presupuesto y conversión de dólares en República Dominicana.">
+
+    <meta name="keywords"
+          content="calculadora salario RD, salario neto República Dominicana, calculadora préstamos RD, liquidación laboral RD, regalía pascual, presupuesto RD, CalculaRD">
+
+    <meta name="author"
+          content="CalculaRD">
+
+    <meta name="robots"
+          content="index, follow">
+
+
+    <!-- REDES SOCIALES -->
+
+    <meta property="og:title"
+          content="CalculaRD | Calcula. Entiende. Decide.">
+
+    <meta property="og:description"
+          content="Herramientas financieras gratuitas para República Dominicana. Calcula salario, préstamos, liquidación, regalía y más.">
+
+    <meta property="og:type"
+          content="website">
+
+    <meta property="og:locale"
+          content="es_DO">
+
+    <meta property="og:image"
+          content="logo.png">
+
+
+    <!-- ICONO DEL NAVEGADOR -->
+
+    <link rel="icon"
+          type="image/png"
+          href="logo.png">
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+<body>
+
+
+    <!-- =========================
+         NAVEGACIÓN
+    ========================== -->
+
+    <header class="header">
+
+        <div class="container nav">
+
+            <a href="#inicio" class="logo">
+
+                <img src="./logo.png"
+                     alt="CalculaRD">
+
+            </a>
+
+
+            <nav class="menu">
+
+                <a href="#inicio">
+                    Inicio
+                </a>
+
+                <a href="#calculadoras">
+                    Calculadoras
+                </a>
+
+                <a href="#sobre">
+                    Sobre CalculaRD
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+  <main>
+
+    <section class="hero" id="inicio">
+
+        <div class="container hero-content">
+
+            <div class="badge">
+                🇩🇴 Herramientas financieras para República Dominicana
+            </div>
+
+            <h1>
+                Calcula.
+                <span>Entiende.</span>
+                Decide.
+            </h1>
+
+            <p class="hero-description">
+                Calcula tu salario, préstamos, presupuesto y otras
+                herramientas financieras de forma sencilla, rápida
+                y gratuita.
+            </p>
+
+            <div class="hero-actions">
+
+                <a href="#calculadoras" class="hero-button">
+                    🧮 Ver calculadoras
+                </a>
+
+                <a href="#sobre" class="hero-secondary">
+                    Conoce CalculaRD
+                </a>
+
+            </div>
+
+            <div class="hero-features">
+
+                <div>
+                    <strong>6+</strong>
+                    <span>Herramientas</span>
+                </div>
+
+                <div>
+                    <strong>100%</strong>
+                    <span>Gratis</span>
+                </div>
+
+                <div>
+                    <strong>🇩🇴</strong>
+                    <span>Enfocado en RD</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+        <!-- =========================
+             CALCULADORAS
+        ========================== -->
+
+        <section class="tools" id="calculadoras">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+                        HERRAMIENTAS
+                    </span>
+
+                    <h2>
+                        Calculadoras para ti
+                    </h2>
+
+                    <p>
+                        Elige una herramienta para comenzar.
+                    </p>
+
+                </div>
+
+
+                <div class="cards">
+
+                    <!-- SALARIO -->
+
+                    <article class="card">
+
+                        <div class="card-icon">
+                            💼
+                        </div>
+
+                        <h3>
+                            Salario neto
+                        </h3>
+
+                        <p>
+                            Estima cuánto podrías recibir
+                            después de descuentos.
+                        </p>
+
+                        <button
+                            onclick="mostrarCalculadora('salario')">
+
+                            Calcular salario
+
+                        </button>
+
+                    </article>
+
+
+                    <!-- PRESTAMO -->
+
+                    <article class="card">
+
+                        <div class="card-icon">
+                            💰
+                        </div>
+
+                        <h3>
+                            Préstamos
+                        </h3>
+
+                        <p>
+                            Calcula cuotas, intereses
+                            y total a pagar.
+                        </p>
+
+                        <button
+                            onclick="mostrarCalculadora('prestamo')">
+
+                            Calcular préstamo
+
+                        </button>
+
+                    </article>
+
+
+                    <!-- LIQUIDACIÓN -->
+
+                    <article class="card">
+
+                        <div class="card-icon">
+                            🧾
+                        </div>
+
+                        <h3>
+                            Liquidación laboral
+                        </h3>
+
+                        <p>
+                            Estima prestaciones laborales
+                            según tus datos.
+                        </p>
+
+                        <button
+                            onclick="mostrarCalculadora('liquidacion')">
+
+                            Calcular liquidación
+
+                        </button>
+
+                    </article>
+
+
+                    <!-- DOLAR -->
+
+                    <article class="card">
+
+                        <div class="card-icon">
+                            💵
+                        </div>
+
+                        <h3>
+                            USD → RD$
+                        </h3>
+
+                        <p>
+                            Convierte dólares estadounidenses
+                            a pesos dominicanos.
+                        </p>
+
+                        <button
+                            onclick="mostrarCalculadora('dolar')">
+
+                            Convertir dólares
+
+                        </button>
+
+                    </article>
+
+
+                    <!-- PRESUPUESTO -->
+
+                    <article class="card">
+
+                        <div class="card-icon">
+                            📊
+                        </div>
+
+                        <h3>
+                            Presupuesto
+                        </h3>
+
+                        <p>
+                            Organiza tus ingresos,
+                            gastos y ahorro.
+                        </p>
+
+                        <button
+                            onclick="mostrarCalculadora('presupuesto')">
+
+                            Crear presupuesto
+
+                        </button>
+
+                    </article>
+
+
+                    <!-- REGALIA -->
+
+                    <article class="card">
+
+                        <div class="card-icon">
+                            🎁
+                        </div>
+
+                        <h3>
+                            Regalía pascual
+                        </h3>
+
+                        <p>
+                            Estima tu salario de Navidad.
+                        </p>
+
+                        <button
+                            onclick="mostrarCalculadora('regalia')">
+
+                            Calcular regalía
+
+                        </button>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ZONA DE CALCULADORAS
+        ========================== -->
+
+        <section class="calculator-section">
+
+            <div class="container">
+
+
+                <!-- =====================
+                     SALARIO
+                ====================== -->
+
+                <div class="calculator-box"
+                     id="calculadora-salario">
+
+                    <div class="calculator-header">
+
+                        <span>
+                            💼 SALARIO
+                        </span>
+
+                        <h2>
+                            Calculadora de salario neto
+                        </h2>
+
+                        <p>
+                            Introduce tu salario mensual
+                            para obtener una estimación.
+                        </p>
+
+                    </div>
+
+
+                    <label for="salario">
+                        Salario bruto mensual
+                    </label>
+
+                    <input
+                        type="number"
+                        id="salario"
+                        placeholder="50000"
+                        min="0"
+                    >
+
+
+                    <label for="otros">
+                        Otros ingresos
+                    </label>
+
+                    <input
+                        type="number"
+                        id="otros"
+                        placeholder="0"
+                        min="0"
+                    >
+
+
+                    <button
+                        class="calculate-button"
+                        onclick="calcularSalario()">
+
+                        🧮 CALCULAR MI SALARIO
+
+                    </button>
+
+
+                    <div class="result"
+                         id="resultado-salario">
+
+                        <h3>
+                            Salario neto estimado
+                        </h3>
+
+                        <div class="big-result"
+                             id="neto">
+
+                            RD$0
+
+                        </div>
+
+                        <div class="result-line">
+                            <span>Salario bruto</span>
+                            <strong id="bruto">RD$0</strong>
+                        </div>
+
+                        <div class="result-line">
+                            <span>AFP estimada</span>
+                            <strong id="afp">RD$0</strong>
+                        </div>
+
+                        <div class="result-line">
+                            <span>SFS estimado</span>
+                            <strong id="sfs">RD$0</strong>
+                        </div>
+
+                        <div class="result-line">
+                            <span>ISR estimado</span>
+                            <strong id="isr">RD$0</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =====================
+                     PRESTAMO
+                ====================== -->
+
+                <div class="calculator-box"
+                     id="calculadora-prestamo">
+
+                    <div class="calculator-header">
+
+                        <span>
+                            💰 PRÉSTAMOS
+                        </span>
+
+                        <h2>
+                            Calculadora de préstamos
+                        </h2>
+
+                        <p>
+                            Calcula una cuota mensual estimada.
+                        </p>
+
+                    </div>
+
+
+                    <label for="montoPrestamo">
+                        Monto del préstamo
+                    </label>
+
+                    <input
+                        type="number"
+                        id="montoPrestamo"
+                        placeholder="500000"
+                        min="0"
+                    >
+
+
+                    <label for="tasaPrestamo">
+                        Tasa anual (%)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="tasaPrestamo"
+                        placeholder="12"
+                        min="0"
+                        step="0.01"
+                    >
+
+
+                    <label for="plazoPrestamo">
+                        Plazo en años
+                    </label>
+
+                    <input
+                        type="number"
+                        id="plazoPrestamo"
+                        placeholder="5"
+                        min="1"
+                    >
+
+
+                    <button
+                        class="calculate-button"
+                        onclick="calcularPrestamo()">
+
+                        🧮 CALCULAR PRÉSTAMO
+
+                    </button>
+
+
+                    <div class="result"
+                         id="resultado-prestamo">
+
+                        <h3>
+                            Cuota mensual estimada
+                        </h3>
+
+                        <div class="big-result"
+                             id="cuotaPrestamo">
+
+                            RD$0
+
+                        </div>
+
+                        <div class="result-line">
+                            <span>Monto</span>
+                            <strong id="montoResultado">RD$0</strong>
+                        </div>
+
+                        <div class="result-line">
+                            <span>Total de intereses</span>
+                            <strong id="interesesPrestamo">RD$0</strong>
+                        </div>
+
+                        <div class="result-line">
+                            <span>Total a pagar</span>
+                            <strong id="totalPrestamo">RD$0</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =====================
+                     LIQUIDACIÓN
+                ====================== -->
+
+                <div class="calculator-box"
+                     id="calculadora-liquidacion">
+
+                    <div class="calculator-header">
+
+                        <span>
+                            🧾 LIQUIDACIÓN
+                        </span>
+
+                        <h2>
+                            Calculadora de liquidación laboral
+                        </h2>
+
+                        <p>
+                            Estimación inicial de prestaciones laborales.
+                        </p>
+
+                    </div>
+
+
+                    <label for="salarioLiquidacion">
+                        Salario mensual
+                    </label>
+
+                    <input
+                        type="number"
+                        id="salarioLiquidacion"
+                        placeholder="30000"
+                        min="0"
+                    >
+
+
+                    <label for="fechaIngreso">
+                        Fecha de ingreso
+                    </label>
+
+                    <input
+                        type="date"
+                        id="fechaIngreso"
+                    >
+
+
+                    <label for="fechaSalida">
+                        Fecha de salida
+                    </label>
+
+                    <input
+                        type="date"
+                        id="fechaSalida"
+                    >
+
+
+                    <label for="preaviso">
+                        ¿Recibiste preaviso?
+                    </label>
+
+                    <select id="preaviso">
+
+                        <option value="no">
+                            No
+                        </option>
+
+                        <option value="si">
+                            Sí
+                        </option>
+
+                    </select>
+<label for="incluirCesantia">
+    ¿Deseas incluir cesantía?
+</label>
+
+<select id="incluirCesantia">
+
+    <option value="si">
+        Sí
+    </option>
+
+    <option value="no">
+        No
+    </option>
+
+</select>
+
+
+<label for="vacacionesTomadas">
+    ¿Tomaste las vacaciones correspondientes?
+</label>
+
+<select id="vacacionesTomadas">
+
+    <option value="no">
+        No
+    </option>
+
+    <option value="si">
+        Sí
+    </option>
+
+</select>
+
+
+<label for="incluirNavidad">
+    ¿Incluir salario de Navidad?
+</label>
+
+<select id="incluirNavidad">
+
+    <option value="si">
+        Sí
+    </option>
+
+    <option value="no">
+        No
+    </option>
+
+</select>
+
+                    <button
+                        class="calculate-button"
+                        onclick="calcularLiquidacion()">
+
+                        🧮 CALCULAR LIQUIDACIÓN
+
+                    </button>
+
+
+                    <div class="result"
+                         id="resultado-liquidacion">
+
+                        <h3>
+                            Total estimado
+                        </h3>
+
+                        <div class="big-result"
+                             id="totalLiquidacion">
+
+                            RD$0
+
+                        </div>
+
+                        <div class="result-line">
+                            <span>Preaviso</span>
+                            <strong id="preavisoLiquidacion">RD$0</strong>
+                        </div>
+
+                        <div class="result-line">
+                            <span>Cesantía</span>
+                            <strong id="cesantiaLiquidacion">RD$0</strong>
+                        </div>
+
+                        <div class="result-line">
+                            <span>Vacaciones</span>
+                            <strong id="vacacionesLiquidacion">RD$0</strong>
+                        </div>
+
+                        <div class="result-line">
+                            <span>Salario de Navidad</span>
+                            <strong id="navidadLiquidacion">RD$0</strong>
+                        </div>
+
+                    </div>
+
+                    <p class="warning">
+    ⚠️ Resultado estimado. El cálculo puede variar según
+    salarios, comisiones, antigüedad y forma de terminación
+    del contrato. No constituye asesoría legal ni sustituye
+    el cálculo oficial del Ministerio de Trabajo.
+</p>
+
+
+                <!-- =====================
+                     DOLAR
+                ====================== -->
+
+                <div class="calculator-box"
+                     id="calculadora-dolar">
+
+                    <div class="calculator-header">
+
+                        <span>
+                            💵 DÓLAR
+                        </span>
+
+                        <h2>
+                            Conversor USD → RD$
+                        </h2>
+
+                        <p>
+                            Convierte dólares a pesos dominicanos.
+                        </p>
+
+                    </div>
+
+
+                    <label for="dolares">
+                        Cantidad en USD
+                    </label>
+
+                    <input
+                        type="number"
+                        id="dolares"
+                        placeholder="100"
+                        min="0"
+                    >
+
+
+                    <label for="tasaDolar">
+                        Tasa de cambio
+                    </label>
+
+                    <input
+                        type="number"
+                        id="tasaDolar"
+                        placeholder="60"
+                        min="0"
+                        step="0.01"
+                    >
+
+
+                    <button
+                        class="calculate-button"
+                        onclick="convertirDolar()">
+
+                        💵 CONVERTIR
+
+                    </button>
+
+
+                    <div class="result"
+                         id="resultado-dolar">
+
+                        <h3>
+                            Resultado
+                        </h3>
+
+                        <div class="big-result"
+                             id="resultadoDolar">
+
+                            RD$0
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =====================
+                     PRESUPUESTO
+                ====================== -->
+
+                <div class="calculator-box"
+                     id="calculadora-presupuesto">
+
+                    <div class="calculator-header">
+
+                        <span>
+                            📊 PRESUPUESTO
+                        </span>
+
+                        <h2>
+                            Presupuesto personal
+                        </h2>
+
+                        <p>
+                            Compara tus ingresos y gastos.
+                        </p>
+
+                    </div>
+
+
+                    <label for="ingresos">
+                        Ingresos mensuales
+                    </label>
+
+                    <input
+                        type="number"
+                        id="ingresos"
+                        placeholder="50000"
+                        min="0"
+                    >
+
+
+                    <label for="gastos">
+                        Gastos mensuales
+                    </label>
+
+                    <input
+                        type="number"
+                        id="gastos"
+                        placeholder="35000"
+                        min="0"
+                    >
+
+
+                    <button
+                        class="calculate-button"
+                        onclick="calcularPresupuesto()">
+
+                        📊 CALCULAR PRESUPUESTO
+
+                    </button>
+
+
+                    <div class="result"
+                         id="resultado-presupuesto">
+
+                        <h3>
+                            Dinero disponible
+                        </h3>
+
+                        <div class="big-result"
+                             id="disponible">
+
+                            RD$0
+
+                        </div>
+
+                        <div class="result-line">
+                            <span>Ingresos</span>
+                            <strong id="ingresosResultado">RD$0</strong>
+                        </div>
+
+                        <div class="result-line">
+                            <span>Gastos</span>
+                            <strong id="gastosResultado">RD$0</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =====================
+                     REGALIA
+                ====================== -->
+
+                <div class="calculator-box"
+                     id="calculadora-regalia">
+
+                    <div class="calculator-header">
+
+                        <span>
+                            🎁 REGALÍA
+                        </span>
+
+                        <h2>
+                            Calculadora de regalía pascual
+                        </h2>
+
+                        <p>
+                            Estima tu salario de Navidad.
+                        </p>
+
+                    </div>
+
+
+                    <label for="salarioRegalia">
+                        Salario mensual
+                    </label>
+
+                    <input
+                        type="number"
+                        id="salarioRegalia"
+                        placeholder="30000"
+                        min="0"
+                    >
+
+
+                    <label for="mesesRegalia">
+                        Meses trabajados
+                    </label>
+
+                    <input
+                        type="number"
+                        id="mesesRegalia"
+                        placeholder="12"
+                        min="0"
+                        max="12"
+                        step="0.01"
+                    >
+
+
+                    <button
+                        class="calculate-button"
+                        onclick="calcularRegalia()">
+
+                        🎁 CALCULAR REGALÍA
+
+                    </button>
+
+
+                    <div class="big-result"
+     id="regaliaResultado">
+
+    RD$0
+
+</div>
+
+<p class="warning">
+    ⚠️ Resultado estimado suponiendo un salario mensual
+    constante. Si tu salario cambió durante el año,
+    el cálculo puede variar.
+</p>
+
+</div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SOBRE
+        ========================== -->
+
+        <section class="about"
+                 id="sobre">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+                        SOBRE CALCULARD
+                    </span>
+
+                    <h2>
+                        Información sencilla para tomar decisiones
+                    </h2>
+
+                    <p>
+                        CalculaRD busca ofrecer herramientas
+                        sencillas para ayudar a las personas
+                        en República Dominicana a entender
+                        mejor sus números.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <strong>
+                🇩🇴 CalculaRD
+            </strong>
+
+            <p>
+                Calcula. Entiende. Decide.
+            </p>
+
+            <small>
+                © 2026 CalculaRD. Herramientas informativas.
+            </small>
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

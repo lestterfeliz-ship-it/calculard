@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lestterfeliz-ship-it.github.io/calculard/sitemap.xml
+Sitemap: https://calculardrd.com/sitemap.xml

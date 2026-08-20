@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <!-- GOOGLE ANALYTICS -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FY5VRZV0E"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-8FY5VRZV0E');
+    </script>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+
+    <!-- SEO -->
+    <title>
+        Calculadora de Préstamos RD | CalculaRD
+    </title>
+
+    <meta name="description"
+          content="Calcula la cuota mensual, intereses y total a pagar de un préstamo en República Dominicana con la calculadora gratuita de CalculaRD.">
+
+    <link rel="canonical"
+          href="https://lestterfeliz-ship-it.github.io/calculard/prestamos.html">
+
+    <meta name="author"
+          content="CalculaRD">
+
+    <meta name="robots"
+          content="index, follow">
+
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:title"
+          content="Calculadora de Préstamos RD | CalculaRD">
+
+    <meta property="og:description"
+          content="Calcula cuotas, intereses y total estimado de un préstamo en República Dominicana.">
+
+    <meta property="og:type"
+          content="website">
+
+    <meta property="og:locale"
+          content="es_DO">
+
+    <meta property="og:url"
+          content="https://lestterfeliz-ship-it.github.io/calculard/prestamos.html">
+
+    <meta property="og:image"
+          content="https://lestterfeliz-ship-it.github.io/calculard/logo.png">
+
+
+    <!-- TWITTER / X -->
+    <meta name="twitter:card"
+          content="summary_large_image">
+
+    <meta name="twitter:title"
+          content="Calculadora de Préstamos RD | CalculaRD">
+
+    <meta name="twitter:description"
+          content="Calcula una cuota mensual estimada, intereses y total a pagar.">
+
+    <meta name="twitter:image"
+          content="https://lestterfeliz-ship-it.github.io/calculard/logo.png">
+
+
+    <!-- ICONO -->
+    <link rel="icon"
+          type="image/png"
+          href="logo.png">
+
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="style.css">
+
+
+    <!-- DATOS ESTRUCTURADOS -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Calculadora de Préstamos RD",
+        "url": "https://lestterfeliz-ship-it.github.io/calculard/prestamos.html",
+        "description": "Calculadora gratuita para estimar cuotas, intereses y total a pagar de préstamos.",
+        "inLanguage": "es-DO"
+    }
+    </script>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVEGACIÓN -->
+
+    <header class="header">
+
+        <div class="container nav">
+
+            <a href="index.html"
+               class="logo">
+
+                <img src="./logo.png"
+                     alt="CalculaRD">
+
+            </a>
+
+
+            <nav class="menu">
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                <a href="index.html#calculadoras">
+                    Calculadoras
+                </a>
+
+                <a href="index.html#sobre">
+                    Sobre CalculaRD
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- INTRODUCCIÓN -->
+
+        <section class="about">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+                        💰 PRÉSTAMOS
+                    </span>
+
+                    <h1>
+                        Calculadora de préstamos
+                        en República Dominicana
+                    </h1>
+
+                    <p>
+                        Estima la cuota mensual, los intereses
+                        y el total a pagar de un préstamo.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- CALCULADORA -->
+
+        <section class="calculator-section">
+
+            <div class="container">
+
+                <div class="calculator-box"
+                     id="calculadora-prestamo">
+
+                    <div class="calculator-header">
+
+                        <span>
+                            💰 PRÉSTAMOS
+                        </span>
+
+                        <h2>
+                            Calcula tu préstamo
+                        </h2>
+
+                        <p>
+                            Introduce el monto, la tasa anual
+                            y el plazo del préstamo.
+                        </p>
+
+                    </div>
+
+
+                    <label for="montoPrestamo">
+                        Monto del préstamo
+                    </label>
+
+                    <input
+                        type="number"
+                        id="montoPrestamo"
+                        placeholder="500000"
+                        min="0"
+                    >
+
+
+                    <label for="tasaPrestamo">
+                        Tasa anual (%)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="tasaPrestamo"
+                        placeholder="12"
+                        min="0"
+                        step="0.01"
+                    >
+
+
+                    <label for="plazoPrestamo">
+                        Plazo en años
+                    </label>
+
+                    <input
+                        type="number"
+                        id="plazoPrestamo"
+                        placeholder="5"
+                        min="1"
+                    >
+
+
+                    <button
+                        class="calculate-button"
+                        onclick="calcularPrestamo()">
+
+                        🧮 CALCULAR PRÉSTAMO
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="clear-button"
+                        onclick="limpiarPrestamo()">
+
+                        🧹 NUEVO CÁLCULO
+
+                    </button>
+
+
+                    <div class="result"
+                         id="resultado-prestamo">
+
+                        <h3>
+                            Cuota mensual estimada
+                        </h3>
+
+
+                        <div class="big-result"
+                             id="cuotaPrestamo">
+
+                            RD$0
+
+                        </div>
+
+
+                        <div class="result-line">
+
+                            <span>
+                                Monto
+                            </span>
+
+                            <strong id="montoResultado">
+                                RD$0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-line">
+
+                            <span>
+                                Total de intereses
+                            </span>
+
+                            <strong id="interesesPrestamo">
+                                RD$0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-line">
+
+                            <span>
+                                Total a pagar
+                            </span>
+
+                            <strong id="totalPrestamo">
+                                RD$0
+                            </strong>
+
+                        </div>
+
+
+                        <p class="warning">
+
+                            ⚠️ Resultado estimado. La cuota y el total
+                            a pagar pueden variar según la entidad
+                            financiera, seguros, comisiones, cargos
+                            adicionales y condiciones específicas
+                            del préstamo.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- CONTENIDO INFORMATIVO -->
+
+        <section class="about">
+
+            <div class="container">
+
+                <div class="calculator-box">
+
+                    <h2>
+                        ¿Cómo funciona la calculadora de préstamos?
+                    </h2>
+
+                    <p>
+                        Introduce el monto que deseas financiar,
+                        la tasa de interés anual y el plazo en años.
+                        CalculaRD estimará la cuota mensual del préstamo.
+                    </p>
+
+
+                    <h2>
+                        ¿Qué resultados muestra?
+                    </h2>
+
+                    <p>
+                        La herramienta muestra una cuota mensual estimada,
+                        el total aproximado de intereses y el total que
+                        pagarías durante el plazo indicado.
+                    </p>
+
+
+                    <h2>
+                        ¿La cuota incluye seguros y comisiones?
+                    </h2>
+
+                    <p>
+                        No necesariamente. Las entidades financieras pueden
+                        aplicar seguros, comisiones, cargos y otras condiciones
+                        que modifiquen la cuota final.
+                    </p>
+
+
+                    <h2>
+                        Importante
+                    </h2>
+
+                    <p>
+                        CalculaRD proporciona una estimación informativa.
+                        Antes de contratar un préstamo, verifica las
+                        condiciones, tasas, cargos y costos directamente
+                        con la entidad financiera.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <strong>
+                🇩🇴 CalculaRD
+            </strong>
+
+            <p>
+                Calcula. Entiende. Decide.
+            </p>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                |
+
+                <a href="privacidad.html">
+                    Política de Privacidad
+                </a>
+
+                |
+
+                <a href="terminos.html">
+                    Términos de Uso
+                </a>
+
+                |
+
+                <a href="contacto.html">
+                    Contacto
+                </a>
+
+            </div>
+
+
+            <small>
+                © 2026 CalculaRD. Herramientas informativas.
+            </small>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1305,3 +1305,32 @@ button {
     }
 
 }
+/* ENLACE DE TARJETA CON ESTILO DE BOTÓN */
+.card-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    padding: 13px 16px;
+
+    background: #1769e0;
+    color: #ffffff;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.card-link:hover {
+    background: #0f56bd;
+    transform: translateY(-1px);
+}

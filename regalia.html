@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <!-- GOOGLE ANALYTICS -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FY5VRZV0E"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-8FY5VRZV0E');
+    </script>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+
+    <!-- SEO -->
+    <title>
+        Calculadora de Regalía Pascual RD | CalculaRD
+    </title>
+
+    <meta name="description"
+          content="Calcula una estimación de tu regalía pascual o salario de Navidad en República Dominicana de forma rápida y gratuita con CalculaRD.">
+
+    <link rel="canonical"
+          href="https://lestterfeliz-ship-it.github.io/calculard/regalia.html">
+
+    <meta name="author"
+          content="CalculaRD">
+
+    <meta name="robots"
+          content="index, follow">
+
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:title"
+          content="Calculadora de Regalía Pascual RD | CalculaRD">
+
+    <meta property="og:description"
+          content="Estima tu salario de Navidad según tu salario mensual y los meses trabajados.">
+
+    <meta property="og:type"
+          content="website">
+
+    <meta property="og:locale"
+          content="es_DO">
+
+    <meta property="og:url"
+          content="https://lestterfeliz-ship-it.github.io/calculard/regalia.html">
+
+    <meta property="og:image"
+          content="https://lestterfeliz-ship-it.github.io/calculard/logo.png">
+
+
+    <!-- TWITTER / X -->
+    <meta name="twitter:card"
+          content="summary_large_image">
+
+    <meta name="twitter:title"
+          content="Calculadora de Regalía Pascual RD | CalculaRD">
+
+    <meta name="twitter:description"
+          content="Calcula una estimación de tu regalía pascual en República Dominicana.">
+
+    <meta name="twitter:image"
+          content="https://lestterfeliz-ship-it.github.io/calculard/logo.png">
+
+
+    <!-- ICONO -->
+    <link rel="icon"
+          type="image/png"
+          href="logo.png">
+
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="style.css">
+
+
+    <!-- DATOS ESTRUCTURADOS -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Calculadora de Regalía Pascual RD",
+        "url": "https://lestterfeliz-ship-it.github.io/calculard/regalia.html",
+        "description": "Calculadora gratuita para estimar la regalía pascual o salario de Navidad en República Dominicana.",
+        "inLanguage": "es-DO"
+    }
+    </script>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVEGACIÓN -->
+
+    <header class="header">
+
+        <div class="container nav">
+
+            <a href="index.html"
+               class="logo">
+
+                <img src="./logo.png"
+                     alt="CalculaRD">
+
+            </a>
+
+
+            <nav class="menu">
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                <a href="index.html#calculadoras">
+                    Calculadoras
+                </a>
+
+                <a href="index.html#sobre">
+                    Sobre CalculaRD
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- INTRODUCCIÓN -->
+
+        <section class="about">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+                        🎁 REGALÍA PASCUAL
+                    </span>
+
+                    <h1>
+                        Calculadora de regalía pascual
+                        en República Dominicana
+                    </h1>
+
+                    <p>
+                        Estima tu salario de Navidad según
+                        tu salario mensual y los meses trabajados.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- CALCULADORA -->
+
+        <section class="calculator-section">
+
+            <div class="container">
+
+                <div class="calculator-box"
+                     id="calculadora-regalia">
+
+
+                    <div class="calculator-header">
+
+                        <span>
+                            🎁 REGALÍA
+                        </span>
+
+                        <h2>
+                            Calcula tu regalía pascual
+                        </h2>
+
+                        <p>
+                            Introduce tu salario mensual
+                            y los meses trabajados.
+                        </p>
+
+                    </div>
+
+
+                    <label for="salarioRegalia">
+                        Salario mensual
+                    </label>
+
+                    <input
+                        type="number"
+                        id="salarioRegalia"
+                        placeholder="30000"
+                        min="0"
+                    >
+
+
+                    <label for="mesesRegalia">
+                        Meses trabajados
+                    </label>
+
+                    <input
+                        type="number"
+                        id="mesesRegalia"
+                        placeholder="12"
+                        min="0"
+                        max="12"
+                        step="0.01"
+                    >
+
+
+                    <button
+                        class="calculate-button"
+                        onclick="calcularRegalia()">
+
+                        🎁 CALCULAR REGALÍA
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="clear-button"
+                        onclick="limpiarRegalia()">
+
+                        🧹 NUEVO CÁLCULO
+
+                    </button>
+
+
+                    <div class="result"
+                         id="resultado-regalia">
+
+                        <h3>
+                            Regalía estimada
+                        </h3>
+
+                        <div class="big-result"
+                             id="regaliaResultado">
+
+                            RD$0
+
+                        </div>
+
+
+                        <p class="warning">
+
+                            ⚠️ Resultado estimado suponiendo un salario
+                            mensual constante. Si tu salario cambió durante
+                            el año, el cálculo puede variar.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- CONTENIDO INFORMATIVO -->
+
+        <section class="about">
+
+            <div class="container">
+
+                <div class="calculator-box">
+
+
+                    <h2>
+                        ¿Qué es la regalía pascual?
+                    </h2>
+
+                    <p>
+                        La regalía pascual, también conocida como
+                        salario de Navidad, es un pago anual que puede
+                        corresponder a los trabajadores según los
+                        salarios devengados durante el año.
+                    </p>
+
+
+                    <h2>
+                        ¿Cómo funciona esta calculadora?
+                    </h2>
+
+                    <p>
+                        Introduce tu salario mensual y la cantidad de
+                        meses trabajados. CalculaRD realizará una
+                        estimación suponiendo que el salario se mantuvo
+                        constante durante ese período.
+                    </p>
+
+
+                    <h2>
+                        Ejemplo
+                    </h2>
+
+                    <p>
+                        Si tu salario mensual fue RD$30,000 y trabajaste
+                        12 meses con ese mismo salario, la estimación
+                        será RD$30,000.
+                    </p>
+
+
+                    <h2>
+                        ¿Qué pasa si mi salario cambió?
+                    </h2>
+
+                    <p>
+                        Si recibiste salarios diferentes durante el año,
+                        esta calculadora simplificada puede no reflejar
+                        exactamente el monto final.
+                    </p>
+
+
+                    <h2>
+                        Importante
+                    </h2>
+
+                    <p>
+                        Esta herramienta proporciona una estimación con
+                        fines informativos y no sustituye un cálculo
+                        oficial o una evaluación particular de tu caso.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <strong>
+                🇩🇴 CalculaRD
+            </strong>
+
+            <p>
+                Calcula. Entiende. Decide.
+            </p>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                |
+
+                <a href="privacidad.html">
+                    Política de Privacidad
+                </a>
+
+                |
+
+                <a href="terminos.html">
+                    Términos de Uso
+                </a>
+
+                |
+
+                <a href="contacto.html">
+                    Contacto
+                </a>
+
+            </div>
+
+
+            <small>
+                © 2026 CalculaRD. Herramientas informativas.
+            </small>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

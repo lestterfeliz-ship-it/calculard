@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <!-- GOOGLE ANALYTICS -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FY5VRZV0E"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-8FY5VRZV0E');
+    </script>
+
+
+    <!-- CONFIGURACIÓN BÁSICA -->
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+
+    <!-- SEO -->
+    <title>
+        Calculadora de Salario Neto RD 2026 | CalculaRD
+    </title>
+
+    <meta name="description"
+          content="Calcula tu salario neto en República Dominicana. Estima descuentos de AFP, SFS e ISR de forma rápida y gratuita con CalculaRD.">
+
+    <link rel="canonical"
+          href="https://lestterfeliz-ship-it.github.io/calculard/salario-neto.html">
+
+    <meta name="author"
+          content="CalculaRD">
+
+    <meta name="robots"
+          content="index, follow">
+
+
+    <!-- OPEN GRAPH / WHATSAPP / FACEBOOK -->
+    <meta property="og:title"
+          content="Calculadora de Salario Neto RD | CalculaRD">
+
+    <meta property="og:description"
+          content="Estima tu salario neto después de AFP, SFS e ISR en República Dominicana.">
+
+    <meta property="og:type"
+          content="website">
+
+    <meta property="og:locale"
+          content="es_DO">
+
+    <meta property="og:url"
+          content="https://lestterfeliz-ship-it.github.io/calculard/salario-neto.html">
+
+    <meta property="og:image"
+          content="https://lestterfeliz-ship-it.github.io/calculard/logo.png">
+
+
+    <!-- TWITTER / X -->
+    <meta name="twitter:card"
+          content="summary_large_image">
+
+    <meta name="twitter:title"
+          content="Calculadora de Salario Neto RD | CalculaRD">
+
+    <meta name="twitter:description"
+          content="Calcula tu salario neto estimado en República Dominicana.">
+
+    <meta name="twitter:image"
+          content="https://lestterfeliz-ship-it.github.io/calculard/logo.png">
+
+
+    <!-- ICONO -->
+    <link rel="icon"
+          type="image/png"
+          href="logo.png">
+
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="style.css">
+
+
+    <!-- DATOS ESTRUCTURADOS -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Calculadora de Salario Neto RD",
+        "url": "https://lestterfeliz-ship-it.github.io/calculard/salario-neto.html",
+        "description": "Calculadora gratuita para estimar salario neto, AFP, SFS e ISR en República Dominicana.",
+        "inLanguage": "es-DO"
+    }
+    </script>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVEGACIÓN
+    ========================== -->
+
+    <header class="header">
+
+        <div class="container nav">
+
+            <a href="index.html"
+               class="logo">
+
+                <img src="./logo.png"
+                     alt="CalculaRD">
+
+            </a>
+
+
+            <nav class="menu">
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                <a href="index.html#calculadoras">
+                    Calculadoras
+                </a>
+
+                <a href="index.html#sobre">
+                    Sobre CalculaRD
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- =========================
+             INTRODUCCIÓN
+        ========================== -->
+
+        <section class="about">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+                        💼 SALARIO NETO
+                    </span>
+
+                    <h1>
+                        Calculadora de salario neto
+                        en República Dominicana
+                    </h1>
+
+                    <p>
+                        Estima cuánto podrías recibir mensualmente
+                        después de los descuentos de AFP, SFS e ISR.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             CALCULADORA
+        ========================== -->
+
+        <section class="calculator-section">
+
+            <div class="container">
+
+
+                <div class="calculator-box"
+                     id="calculadora-salario">
+
+
+                    <div class="calculator-header">
+
+                        <span>
+                            💼 SALARIO
+                        </span>
+
+                        <h2>
+                            Calcula tu salario neto
+                        </h2>
+
+                        <p>
+                            Introduce tu salario bruto mensual
+                            para obtener una estimación.
+                        </p>
+
+                    </div>
+
+
+                    <label for="salario">
+                        Salario bruto mensual
+                    </label>
+
+                    <input
+                        type="number"
+                        id="salario"
+                        placeholder="50000"
+                        min="0"
+                    >
+
+
+                    <label for="otros">
+                        Otros ingresos no sujetos a AFP, SFS ni ISR
+                    </label>
+
+                    <small class="field-help">
+                        Solo incluye aquí ingresos que realmente
+                        no estén sujetos a estas retenciones.
+                    </small>
+
+                    <input
+                        type="number"
+                        id="otros"
+                        placeholder="0"
+                        min="0"
+                    >
+
+
+                    <button
+                        class="calculate-button"
+                        onclick="calcularSalario()">
+
+                        🧮 CALCULAR MI SALARIO
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="clear-button"
+                        onclick="limpiarSalario()">
+
+                        🧹 NUEVO CÁLCULO
+
+                    </button>
+
+
+                    <div class="result"
+                         id="resultado-salario">
+
+                        <h3>
+                            Salario neto estimado
+                        </h3>
+
+
+                        <div class="big-result"
+                             id="neto">
+
+                            RD$0
+
+                        </div>
+
+
+                        <div class="result-line">
+
+                            <span>
+                                Salario bruto
+                            </span>
+
+                            <strong id="bruto">
+                                RD$0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-line">
+
+                            <span>
+                                AFP estimada
+                            </span>
+
+                            <strong id="afp">
+                                RD$0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-line">
+
+                            <span>
+                                SFS estimado
+                            </span>
+
+                            <strong id="sfs">
+                                RD$0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-line">
+
+                            <span>
+                                ISR estimado
+                            </span>
+
+                            <strong id="isr">
+                                RD$0
+                            </strong>
+
+                        </div>
+
+
+                        <p class="warning">
+
+                            ⚠️ Resultado estimado según las tasas y escalas
+                            utilizadas por CalculaRD. El resultado real puede
+                            variar según tu situación laboral, ingresos sujetos
+                            a impuestos, topes de cotización y otras deducciones
+                            aplicables.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             CONTENIDO INFORMATIVO
+        ========================== -->
+
+        <section class="about">
+
+            <div class="container">
+
+                <div class="calculator-box">
+
+                    <h2>
+                        ¿Qué es el salario neto?
+                    </h2>
+
+                    <p>
+                        El salario neto es la cantidad aproximada que recibe
+                        un trabajador después de aplicar las deducciones
+                        correspondientes a su salario bruto.
+                    </p>
+
+
+                    <h2>
+                        ¿Qué descuentos estima CalculaRD?
+                    </h2>
+
+                    <p>
+                        Esta herramienta estima las deducciones correspondientes
+                        a AFP, SFS e Impuesto Sobre la Renta (ISR), cuando
+                        corresponda.
+                    </p>
+
+
+                    <h2>
+                        ¿Cómo usar esta calculadora?
+                    </h2>
+
+                    <p>
+                        Introduce tu salario bruto mensual y pulsa
+                        “Calcular mi salario”. CalculaRD mostrará una estimación
+                        del salario neto y el detalle de las principales
+                        deducciones.
+                    </p>
+
+
+                    <h2>
+                        Importante
+                    </h2>
+
+                    <p>
+                        Esta calculadora ofrece una estimación informativa.
+                        El resultado real puede variar según tu situación
+                        laboral, otros ingresos, deducciones y disposiciones
+                        aplicables.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <strong>
+                🇩🇴 CalculaRD
+            </strong>
+
+            <p>
+                Calcula. Entiende. Decide.
+            </p>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                |
+
+                <a href="privacidad.html">
+                    Política de Privacidad
+                </a>
+
+                |
+
+                <a href="terminos.html">
+                    Términos de Uso
+                </a>
+
+                |
+
+                <a href="contacto.html">
+                    Contacto
+                </a>
+
+            </div>
+
+
+            <small>
+                © 2026 CalculaRD. Herramientas informativas.
+            </small>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

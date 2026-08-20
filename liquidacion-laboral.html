@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <!-- GOOGLE ANALYTICS -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FY5VRZV0E"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-8FY5VRZV0E');
+    </script>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+
+    <!-- SEO -->
+    <title>
+        Calculadora de Liquidación Laboral RD | CalculaRD
+    </title>
+
+    <meta name="description"
+          content="Calcula una estimación de liquidación laboral en República Dominicana: preaviso, cesantía, vacaciones y salario de Navidad con CalculaRD.">
+
+    <link rel="canonical"
+          href="https://lestterfeliz-ship-it.github.io/calculard/liquidacion-laboral.html">
+
+    <meta name="author"
+          content="CalculaRD">
+
+    <meta name="robots"
+          content="index, follow">
+
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:title"
+          content="Calculadora de Liquidación Laboral RD | CalculaRD">
+
+    <meta property="og:description"
+          content="Estima preaviso, cesantía, vacaciones y salario de Navidad en República Dominicana.">
+
+    <meta property="og:type"
+          content="website">
+
+    <meta property="og:locale"
+          content="es_DO">
+
+    <meta property="og:url"
+          content="https://lestterfeliz-ship-it.github.io/calculard/liquidacion-laboral.html">
+
+    <meta property="og:image"
+          content="https://lestterfeliz-ship-it.github.io/calculard/logo.png">
+
+
+    <!-- TWITTER / X -->
+    <meta name="twitter:card"
+          content="summary_large_image">
+
+    <meta name="twitter:title"
+          content="Calculadora de Liquidación Laboral RD | CalculaRD">
+
+    <meta name="twitter:description"
+          content="Calcula una estimación de tus prestaciones laborales en República Dominicana.">
+
+    <meta name="twitter:image"
+          content="https://lestterfeliz-ship-it.github.io/calculard/logo.png">
+
+
+    <!-- ICONO -->
+    <link rel="icon"
+          type="image/png"
+          href="logo.png">
+
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="style.css">
+
+
+    <!-- DATOS ESTRUCTURADOS -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Calculadora de Liquidación Laboral RD",
+        "url": "https://lestterfeliz-ship-it.github.io/calculard/liquidacion-laboral.html",
+        "description": "Calculadora para estimar preaviso, cesantía, vacaciones y salario de Navidad en República Dominicana.",
+        "inLanguage": "es-DO"
+    }
+    </script>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVEGACIÓN -->
+
+    <header class="header">
+
+        <div class="container nav">
+
+            <a href="index.html"
+               class="logo">
+
+                <img src="./logo.png"
+                     alt="CalculaRD">
+
+            </a>
+
+
+            <nav class="menu">
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                <a href="index.html#calculadoras">
+                    Calculadoras
+                </a>
+
+                <a href="index.html#sobre">
+                    Sobre CalculaRD
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- INTRODUCCIÓN -->
+
+        <section class="about">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+                        📋 LIQUIDACIÓN LABORAL
+                    </span>
+
+                    <h1>
+                        Calculadora de liquidación laboral
+                        en República Dominicana
+                    </h1>
+
+                    <p>
+                        Obtén una estimación de preaviso, cesantía,
+                        vacaciones y salario de Navidad.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- CALCULADORA -->
+
+        <section class="calculator-section">
+
+            <div class="container">
+
+                <div class="calculator-box"
+                     id="calculadora-liquidacion">
+
+
+                    <div class="calculator-header">
+
+                        <span>
+                            📋 LIQUIDACIÓN
+                        </span>
+
+                        <h2>
+                            Calcula tu liquidación laboral
+                        </h2>
+
+                        <p>
+                            Introduce tu salario y las fechas
+                            correspondientes.
+                        </p>
+
+                    </div>
+
+
+                    <label for="salarioLiquidacion">
+                        Salario mensual
+                    </label>
+
+                    <input
+                        type="number"
+                        id="salarioLiquidacion"
+                        placeholder="30000"
+                        min="0"
+                    >
+
+
+                    <label for="fechaIngreso">
+                        Fecha de ingreso
+                    </label>
+
+                    <input
+                        type="date"
+                        id="fechaIngreso"
+                    >
+
+
+                    <label for="fechaSalida">
+                        Fecha de salida
+                    </label>
+
+                    <input
+                        type="date"
+                        id="fechaSalida"
+                    >
+
+
+                    <label for="preaviso">
+                        ¿Recibiste preaviso?
+                    </label>
+
+                    <select id="preaviso">
+
+                        <option value="no">
+                            No
+                        </option>
+
+                        <option value="si">
+                            Sí
+                        </option>
+
+                    </select>
+
+
+                    <label for="incluirCesantia">
+                        ¿Incluir cesantía?
+                    </label>
+
+                    <select id="incluirCesantia">
+
+                        <option value="si">
+                            Sí
+                        </option>
+
+                        <option value="no">
+                            No
+                        </option>
+
+                    </select>
+
+
+                    <label for="vacacionesTomadas">
+                        ¿Tomaste tus vacaciones?
+                    </label>
+
+                    <select id="vacacionesTomadas">
+
+                        <option value="no">
+                            No
+                        </option>
+
+                        <option value="si">
+                            Sí
+                        </option>
+
+                    </select>
+
+
+                    <label for="incluirNavidad">
+                        ¿Incluir salario de Navidad?
+                    </label>
+
+                    <select id="incluirNavidad">
+
+                        <option value="si">
+                            Sí
+                        </option>
+
+                        <option value="no">
+                            No
+                        </option>
+
+                    </select>
+
+
+                    <button
+                        class="calculate-button"
+                        onclick="calcularLiquidacion()">
+
+                        🧮 CALCULAR LIQUIDACIÓN
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="clear-button"
+                        onclick="limpiarLiquidacion()">
+
+                        🧹 NUEVO CÁLCULO
+
+                    </button>
+
+
+                    <div class="result"
+                         id="resultado-liquidacion">
+
+
+                        <h3>
+                            Total estimado
+                        </h3>
+
+
+                        <div class="big-result"
+                             id="totalLiquidacion">
+
+                            RD$0
+
+                        </div>
+
+
+                        <div class="result-line">
+
+                            <span>
+                                Preaviso
+                            </span>
+
+                            <strong id="preavisoLiquidacion">
+                                RD$0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-line">
+
+                            <span>
+                                Cesantía
+                            </span>
+
+                            <strong id="cesantiaLiquidacion">
+                                RD$0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-line">
+
+                            <span>
+                                Vacaciones
+                            </span>
+
+                            <strong id="vacacionesLiquidacion">
+                                RD$0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-line">
+
+                            <span>
+                                Salario de Navidad
+                            </span>
+
+                            <strong id="navidadLiquidacion">
+                                RD$0
+                            </strong>
+
+                        </div>
+
+
+                        <p class="warning">
+                            ⚠️ Resultado estimado. El cálculo puede variar
+                            según salarios, comisiones, antigüedad y forma
+                            de terminación del contrato. No constituye
+                            asesoría legal ni sustituye el cálculo oficial
+                            del Ministerio de Trabajo.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- INFORMACIÓN -->
+
+        <section class="about">
+
+            <div class="container">
+
+                <div class="calculator-box">
+
+
+                    <h2>
+                        ¿Qué es una liquidación laboral?
+                    </h2>
+
+                    <p>
+                        Es el cálculo de los derechos laborales que podrían
+                        corresponder a un trabajador al finalizar una relación
+                        laboral, dependiendo de las circunstancias del caso.
+                    </p>
+
+
+                    <h2>
+                        ¿Qué calcula esta herramienta?
+                    </h2>
+
+                    <p>
+                        CalculaRD permite obtener una estimación de preaviso,
+                        cesantía, vacaciones pendientes y salario de Navidad,
+                        según los datos introducidos.
+                    </p>
+
+
+                    <h2>
+                        ¿Por qué el resultado puede variar?
+                    </h2>
+
+                    <p>
+                        El cálculo real puede depender del historial salarial,
+                        tiempo trabajado, forma de terminación del contrato,
+                        vacaciones ya disfrutadas y otros factores.
+                    </p>
+
+
+                    <h2>
+                        Importante
+                    </h2>
+
+                    <p>
+                        Esta herramienta tiene fines informativos y proporciona
+                        una estimación. Para un cálculo oficial o una situación
+                        laboral particular, consulta al Ministerio de Trabajo
+                        de la República Dominicana o a un profesional
+                        competente.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <strong>
+                🇩🇴 CalculaRD
+            </strong>
+
+            <p>
+                Calcula. Entiende. Decide.
+            </p>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                |
+
+                <a href="privacidad.html">
+                    Política de Privacidad
+                </a>
+
+                |
+
+                <a href="terminos.html">
+                    Términos de Uso
+                </a>
+
+                |
+
+                <a href="contacto.html">
+                    Contacto
+                </a>
+
+            </div>
+
+
+            <small>
+                © 2026 CalculaRD. Herramientas informativas.
+            </small>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

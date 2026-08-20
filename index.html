@@ -413,7 +413,7 @@
 
 
                     <label for="otros">
-                        Otros ingresos
+                        Otros ingresos no sujetos a descuentos
                     </label>
 
                     <input
@@ -463,8 +463,16 @@
                         </div>
 
                         <div class="result-line">
-                            <span>ISR estimado</span>
-                            <strong id="isr">RD$0</strong>
+    <span>ISR estimado</span>
+    <strong id="isr">RD$0</strong>
+</div>
+
+<p class="warning">
+    ⚠️ Resultado estimado según las tasas y escalas utilizadas
+    por CalculaRD. El resultado real puede variar según tu situación
+    laboral, ingresos sujetos a impuestos, topes de cotización y
+    otras deducciones aplicables.
+</p>
                         </div>
 
                     </div>
@@ -567,9 +575,17 @@
                         </div>
 
                         <div class="result-line">
-                            <span>Total a pagar</span>
-                            <strong id="totalPrestamo">RD$0</strong>
-                        </div>
+    <span>Total a pagar</span>
+    <strong id="totalPrestamo">RD$0</strong>
+</div>
+
+<p class="warning">
+    ⚠️ Resultado estimado. La cuota y el total a pagar pueden variar
+    según la entidad financiera, seguros, comisiones, cargos adicionales
+    y condiciones específicas del préstamo.
+</p>
+
+</div>
 
                     </div>
 
@@ -580,182 +596,192 @@
                      LIQUIDACIÓN
                 ====================== -->
 
-                <div class="calculator-box"
-                     id="calculadora-liquidacion">
+               <div class="calculator-box"
+     id="calculadora-liquidacion">
 
-                    <div class="calculator-header">
+    <div class="calculator-header">
 
-                        <span>
-                            🧾 LIQUIDACIÓN
-                        </span>
+        <span>
+            🧾 LIQUIDACIÓN
+        </span>
 
-                        <h2>
-                            Calculadora de liquidación laboral
-                        </h2>
+        <h2>
+            Calculadora de liquidación laboral
+        </h2>
 
-                        <p>
-                            Estimación inicial de prestaciones laborales.
-                        </p>
+        <p>
+            Estimación inicial de prestaciones laborales.
+        </p>
 
-                    </div>
-
-
-                    <label for="salarioLiquidacion">
-                        Salario mensual
-                    </label>
-
-                    <input
-                        type="number"
-                        id="salarioLiquidacion"
-                        placeholder="30000"
-                        min="0"
-                    >
+    </div>
 
 
-                    <label for="fechaIngreso">
-                        Fecha de ingreso
-                    </label>
+    <label for="salarioLiquidacion">
+        Salario mensual
+    </label>
 
-                    <input
-                        type="date"
-                        id="fechaIngreso"
-                    >
-
-
-                    <label for="fechaSalida">
-                        Fecha de salida
-                    </label>
-
-                    <input
-                        type="date"
-                        id="fechaSalida"
-                    >
+    <input
+        type="number"
+        id="salarioLiquidacion"
+        placeholder="30000"
+        min="0"
+    >
 
 
-                    <label for="preaviso">
-                        ¿Recibiste preaviso?
-                    </label>
+    <label for="fechaIngreso">
+        Fecha de ingreso
+    </label>
 
-                    <select id="preaviso">
-
-                        <option value="no">
-                            No
-                        </option>
-
-                        <option value="si">
-                            Sí
-                        </option>
-
-                    </select>
-<label for="incluirCesantia">
-    ¿Deseas incluir cesantía?
-</label>
-
-<select id="incluirCesantia">
-
-    <option value="si">
-        Sí
-    </option>
-
-    <option value="no">
-        No
-    </option>
-
-</select>
+    <input
+        type="date"
+        id="fechaIngreso"
+    >
 
 
-<label for="vacacionesTomadas">
-    ¿Tomaste las vacaciones correspondientes?
-</label>
+    <label for="fechaSalida">
+        Fecha de salida
+    </label>
 
-<select id="vacacionesTomadas">
-
-    <option value="no">
-        No
-    </option>
-
-    <option value="si">
-        Sí
-    </option>
-
-</select>
+    <input
+        type="date"
+        id="fechaSalida"
+    >
 
 
-<label for="incluirNavidad">
-    ¿Incluir salario de Navidad?
-</label>
+    <label for="preaviso">
+        ¿Recibiste preaviso?
+    </label>
 
-<select id="incluirNavidad">
+    <select id="preaviso">
 
-    <option value="si">
-        Sí
-    </option>
+        <option value="no">
+            No
+        </option>
 
-    <option value="no">
-        No
-    </option>
+        <option value="si">
+            Sí
+        </option>
 
-</select>
-
-                    <button
-                        class="calculate-button"
-                        onclick="calcularLiquidacion()">
-
-                        🧮 CALCULAR LIQUIDACIÓN
-
-                    </button>
+    </select>
 
 
-                    <div class="result"
-                         id="resultado-liquidacion">
+    <label for="incluirCesantia">
+        ¿Deseas incluir cesantía?
+    </label>
 
-                        <h3>
-                            Total estimado
-                        </h3>
+    <select id="incluirCesantia">
 
-                        <div class="big-result"
-                             id="totalLiquidacion">
+        <option value="si">
+            Sí
+        </option>
 
-                            RD$0
+        <option value="no">
+            No
+        </option>
 
-                        </div>
-
-                        <div class="result-line">
-                            <span>Preaviso</span>
-                            <strong id="preavisoLiquidacion">RD$0</strong>
-                        </div>
-
-                        <div class="result-line">
-                            <span>Cesantía</span>
-                            <strong id="cesantiaLiquidacion">RD$0</strong>
-                        </div>
-
-                        <div class="result-line">
-                            <span>Vacaciones</span>
-                            <strong id="vacacionesLiquidacion">RD$0</strong>
-                        </div>
-
-                        <div class="result-line">
-                            <span>Salario de Navidad</span>
-                            <strong id="navidadLiquidacion">RD$0</strong>
-                        </div>
-
-                    </div>
-
-                    <p class="warning">
-    ⚠️ Resultado estimado. El cálculo puede variar según
-    salarios, comisiones, antigüedad y forma de terminación
-    del contrato. No constituye asesoría legal ni sustituye
-    el cálculo oficial del Ministerio de Trabajo.
-</p>
+    </select>
 
 
-                <!-- =====================
-                     DOLAR
-                ====================== -->
+    <label for="vacacionesTomadas">
+        ¿Tomaste las vacaciones correspondientes?
+    </label>
 
-                <div class="calculator-box"
-                     id="calculadora-dolar">
+    <select id="vacacionesTomadas">
+
+        <option value="no">
+            No
+        </option>
+
+        <option value="si">
+            Sí
+        </option>
+
+    </select>
+
+
+    <label for="incluirNavidad">
+        ¿Incluir salario de Navidad?
+    </label>
+
+    <select id="incluirNavidad">
+
+        <option value="si">
+            Sí
+        </option>
+
+        <option value="no">
+            No
+        </option>
+
+    </select>
+
+
+    <button
+        class="calculate-button"
+        onclick="calcularLiquidacion()">
+
+        🧮 CALCULAR LIQUIDACIÓN
+
+    </button>
+
+
+    <div class="result"
+         id="resultado-liquidacion">
+
+        <h3>
+            Total estimado
+        </h3>
+
+        <div class="big-result"
+             id="totalLiquidacion">
+
+            RD$0
+
+        </div>
+
+
+        <div class="result-line">
+            <span>Preaviso</span>
+            <strong id="preavisoLiquidacion">RD$0</strong>
+        </div>
+
+
+        <div class="result-line">
+            <span>Cesantía</span>
+            <strong id="cesantiaLiquidacion">RD$0</strong>
+        </div>
+
+
+        <div class="result-line">
+            <span>Vacaciones</span>
+            <strong id="vacacionesLiquidacion">RD$0</strong>
+        </div>
+
+
+        <div class="result-line">
+            <span>Salario de Navidad</span>
+            <strong id="navidadLiquidacion">RD$0</strong>
+        </div>
+
+
+        <p class="warning">
+            ⚠️ Resultado estimado. El cálculo puede variar según
+            salarios, comisiones, antigüedad y forma de terminación
+            del contrato. No constituye asesoría legal ni sustituye
+            el cálculo oficial del Ministerio de Trabajo.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =====================
+     DOLAR
+====================== -->
+
+<div class="calculator-box"
+     id="calculadora-dolar">
 
                     <div class="calculator-header">
 
@@ -912,86 +938,82 @@
 
                 </div>
 
+<!-- =====================
+     REGALIA
+====================== -->
 
-                <!-- =====================
-                     REGALIA
-                ====================== -->
+<div class="calculator-box"
+     id="calculadora-regalia">
 
-                <div class="calculator-box"
-                     id="calculadora-regalia">
+    <div class="calculator-header">
 
-                    <div class="calculator-header">
+        <span>
+            🎁 REGALÍA
+        </span>
 
-                        <span>
-                            🎁 REGALÍA
-                        </span>
+        <h2>
+            Calculadora de regalía pascual
+        </h2>
 
-                        <h2>
-                            Calculadora de regalía pascual
-                        </h2>
+        <p>
+            Estima tu salario de Navidad.
+        </p>
 
-                        <p>
-                            Estima tu salario de Navidad.
-                        </p>
+    </div>
 
-                    </div>
+    <label for="salarioRegalia">
+        Salario mensual
+    </label>
 
+    <input
+        type="number"
+        id="salarioRegalia"
+        placeholder="30000"
+        min="0"
+    >
 
-                    <label for="salarioRegalia">
-                        Salario mensual
-                    </label>
+    <label for="mesesRegalia">
+        Meses trabajados
+    </label>
 
-                    <input
-                        type="number"
-                        id="salarioRegalia"
-                        placeholder="30000"
-                        min="0"
-                    >
+    <input
+        type="number"
+        id="mesesRegalia"
+        placeholder="12"
+        min="0"
+        max="12"
+        step="0.01"
+    >
 
+    <button
+        class="calculate-button"
+        onclick="calcularRegalia()">
 
-                    <label for="mesesRegalia">
-                        Meses trabajados
-                    </label>
+        🎁 CALCULAR REGALÍA
 
-                    <input
-                        type="number"
-                        id="mesesRegalia"
-                        placeholder="12"
-                        min="0"
-                        max="12"
-                        step="0.01"
-                    >
+    </button>
 
+    <div class="result"
+         id="resultado-regalia">
 
-                    <button
-                        class="calculate-button"
-                        onclick="calcularRegalia()">
+        <h3>
+            Regalía estimada
+        </h3>
 
-                        🎁 CALCULAR REGALÍA
+        <div class="big-result"
+             id="regaliaResultado">
+            RD$0
+        </div>
 
-                    </button>
+        <p class="warning">
+            ⚠️ Resultado estimado suponiendo un salario mensual
+            constante. Si tu salario cambió durante el año,
+            el cálculo puede variar.
+        </p>
 
-
-                    <div class="big-result"
-     id="regaliaResultado">
-
-    RD$0
+    </div>
 
 </div>
-
-<p class="warning">
-    ⚠️ Resultado estimado suponiendo un salario mensual
-    constante. Si tu salario cambió durante el año,
-    el cálculo puede variar.
-</p>
-
-</div>
-
-                </div>
-
-            </div>
-
-        </section>
 
 
         <!-- =========================
@@ -1045,6 +1067,12 @@
                 Calcula. Entiende. Decide.
             </p>
 <div class="footer-links">
+    <a href="privacidad.html">Política de Privacidad</a>
+    |
+    <a href="terminos.html">Términos de Uso</a>
+    |
+    <a href="contacto.html">Contacto</a>
+</div>
     <a href="privacidad.html">Política de Privacidad</a>
     |
     <a href="terminos.html">Términos de Uso</a>

@@ -1273,3 +1273,22 @@ button {
     }
 
 }
+/* =========================================
+   ENLACES DEL FOOTER
+========================================= */
+
+.footer-links {
+    margin: 12px 0 18px;
+}
+
+.footer-links a {
+    color: #b8c1d1;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.footer-links a:hover {
+    color: white;
+    text-decoration: underline;
+}

@@ -873,9 +873,117 @@ function calcularRegalia() {
 
 
 /* =========================================
+   /* =========================================
+   NUEVO CÁLCULO - SALARIO
+========================================= */
+
+function limpiarSalario() {
+
+    // Limpiar los campos
+    document.getElementById("salario").value = "";
+    document.getElementById("otros").value = "";
+
+    // Ocultar todo el resultado
+    document.getElementById(
+        "resultado-salario"
+    ).style.display = "none";
+
+    // Volver al campo salario
+    document.getElementById("salario").focus();
+}
+
+
+/* =========================================
    MENSAJE INICIAL
 ========================================= */
 
 console.log(
     "CalculaRD cargado correctamente."
 );
+/* =========================================
+   NUEVO CÁLCULO - PRÉSTAMO
+========================================= */
+
+function limpiarPrestamo() {
+
+    // Limpiar campos
+    document.getElementById("montoPrestamo").value = "";
+    document.getElementById("tasaPrestamo").value = "";
+    document.getElementById("plazoPrestamo").value = "";
+
+    // Ocultar todo el resultado
+    document.getElementById(
+        "resultado-prestamo"
+    ).style.display = "none";
+
+    // Volver al primer campo
+    document.getElementById("montoPrestamo").focus();
+}
+/* =========================================
+   NUEVO CÁLCULO - LIQUIDACIÓN
+========================================= */
+
+function limpiarLiquidacion() {
+
+    document.getElementById("salarioLiquidacion").value = "";
+    document.getElementById("fechaIngreso").value = "";
+    document.getElementById("fechaSalida").value = "";
+
+    document.getElementById("preaviso").value = "no";
+    document.getElementById("incluirCesantia").value = "si";
+    document.getElementById("vacacionesTomadas").value = "no";
+    document.getElementById("incluirNavidad").value = "si";
+
+    document.getElementById(
+        "resultado-liquidacion"
+    ).style.display = "none";
+
+    document.getElementById(
+        "salarioLiquidacion"
+    ).focus();
+}
+/* =========================================
+   NUEVO CÁLCULO - DÓLAR
+========================================= */
+
+function limpiarDolar() {
+
+    document.getElementById("dolares").value = "";
+    document.getElementById("tasaDolar").value = "";
+
+    document.getElementById(
+        "resultado-dolar"
+    ).style.display = "none";
+
+    document.getElementById("dolares").focus();
+}
+/* =========================================
+   NUEVO CÁLCULO - PRESUPUESTO
+========================================= */
+
+function limpiarPresupuesto() {
+
+    document.getElementById("ingresos").value = "";
+    document.getElementById("gastos").value = "";
+
+    document.getElementById(
+        "resultado-presupuesto"
+    ).style.display = "none";
+
+    document.getElementById("ingresos").focus();
+}
+/* =========================================
+   NUEVO CÁLCULO - REGALÍA
+========================================= */
+
+function limpiarRegalia() {
+
+    document.getElementById("salarioRegalia").value = "";
+    document.getElementById("mesesRegalia").value = "";
+
+    document.getElementById(
+        "resultado-regalia"
+    ).style.display = "none";
+
+    document.getElementById("salarioRegalia").focus();
+}

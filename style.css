@@ -1296,3 +1296,12 @@ button {
 .calculator-box {
     margin-bottom: 40px;
 }
+/* LOGO EN CELULAR */
+@media (max-width: 600px) {
+
+    .logo img {
+        width: 105px;
+        height: auto;
+    }
+
+}

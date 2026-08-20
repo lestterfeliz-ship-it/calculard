@@ -353,10 +353,10 @@ function calcularLiquidacion() {
         new Date(fechaSalida + "T00:00:00");
 
 
-    if (salida <= ingreso) {
+    if (salida < ingreso) {
 
         alert(
-            "La fecha de salida debe ser posterior a la fecha de ingreso."
+            "La fecha de salida debe ser igual o posterior a la fecha de ingreso."
         );
 
         return;
@@ -367,26 +367,68 @@ function calcularLiquidacion() {
         1000 * 60 * 60 * 24;
 
 
-    const diasTrabajados =
-        Math.floor(
-            (salida - ingreso) / MS_DIA
+    /* =====================================
+       ANTIGÜEDAD CALENDARIO
+    ===================================== */
+
+    let anosCompletos =
+        salida.getFullYear() -
+        ingreso.getFullYear();
+
+    let aniversario =
+        new Date(
+            salida.getFullYear(),
+            ingreso.getMonth(),
+            ingreso.getDate()
+        );
+
+    if (salida < aniversario) {
+        anosCompletos--;
+    }
+
+    if (anosCompletos < 0) {
+        anosCompletos = 0;
+    }
+
+
+    const fechaUltimoAniversario =
+        new Date(
+            ingreso.getFullYear() + anosCompletos,
+            ingreso.getMonth(),
+            ingreso.getDate()
         );
 
 
-    const mesesTrabajados =
-        diasTrabajados / 30.4375;
+    let mesesRestantes =
+        (
+            salida.getFullYear() -
+            fechaUltimoAniversario.getFullYear()
+        ) * 12 +
+        (
+            salida.getMonth() -
+            fechaUltimoAniversario.getMonth()
+        );
+
+    if (
+        salida.getDate() <
+        fechaUltimoAniversario.getDate()
+    ) {
+        mesesRestantes--;
+    }
+
+    if (mesesRestantes < 0) {
+        mesesRestantes = 0;
+    }
 
 
-    const anosTrabajados =
-        diasTrabajados / 365.25;
+    const mesesTotales =
+        anosCompletos * 12 +
+        mesesRestantes;
 
 
-    /*
-        Jornada ordinaria.
-
-        El Ministerio utiliza 23.83
-        para obtener el salario diario.
-    */
+    /* =====================================
+       SALARIO DIARIO
+    ===================================== */
 
     const salarioDiario =
         salario / 23.83;
@@ -398,39 +440,31 @@ function calcularLiquidacion() {
 
     let diasPreaviso = 0;
 
-
-    if (mesesTrabajados >= 3 &&
-        mesesTrabajados < 6) {
-
+    if (
+        mesesTotales >= 3 &&
+        mesesTotales < 6
+    ) {
         diasPreaviso = 7;
-
     }
 
     else if (
-        mesesTrabajados >= 6 &&
-        mesesTrabajados < 12
+        mesesTotales >= 6 &&
+        mesesTotales < 12
     ) {
-
         diasPreaviso = 14;
-
     }
 
-    else if (mesesTrabajados >= 12) {
-
+    else if (mesesTotales >= 12) {
         diasPreaviso = 28;
-
     }
 
 
     let preaviso = 0;
 
-
     if (recibioPreaviso === "no") {
-
         preaviso =
             salarioDiario *
             diasPreaviso;
-
     }
 
 
@@ -440,85 +474,52 @@ function calcularLiquidacion() {
 
     let diasCesantia = 0;
 
-
     if (incluirCesantia === "si") {
 
         if (
-            mesesTrabajados >= 3 &&
-            mesesTrabajados < 6
+            mesesTotales >= 3 &&
+            mesesTotales < 6
         ) {
-
             diasCesantia = 6;
-
         }
 
         else if (
-            mesesTrabajados >= 6 &&
-            mesesTrabajados < 12
+            mesesTotales >= 6 &&
+            mesesTotales < 12
         ) {
-
             diasCesantia = 13;
-
         }
 
-        else if (mesesTrabajados >= 12) {
-
-            const anosCompletos =
-                Math.floor(
-                    mesesTrabajados / 12
-                );
-
-            const mesesRestantes =
-                mesesTrabajados -
-                (
-                    anosCompletos *
-                    12
-                );
-
+        else if (anosCompletos >= 1) {
 
             if (anosCompletos <= 5) {
-
                 diasCesantia =
                     anosCompletos * 21;
-
             }
 
             else {
-
                 diasCesantia =
                     (5 * 21) +
                     (
                         (anosCompletos - 5) *
                         23
                     );
-
             }
 
-
-            /*
-                Fracción adicional
-                del último año.
-            */
 
             if (
                 mesesRestantes >= 3 &&
                 mesesRestantes < 6
             ) {
-
                 diasCesantia += 6;
-
             }
 
             else if (
                 mesesRestantes >= 6
             ) {
-
                 diasCesantia += 13;
-
             }
-
         }
-
     }
 
 
@@ -533,32 +534,55 @@ function calcularLiquidacion() {
 
     let vacaciones = 0;
 
-
     if (vacacionesTomadas === "no") {
 
         let diasVacaciones = 0;
 
-
         if (
-            anosTrabajados >= 1 &&
-            anosTrabajados < 5
+            anosCompletos >= 1 &&
+            anosCompletos < 5
         ) {
-
             diasVacaciones = 14;
-
         }
 
-        else if (anosTrabajados >= 5) {
-
+        else if (anosCompletos >= 5) {
             diasVacaciones = 18;
+        }
 
+        else if (
+            anosCompletos === 0 &&
+            mesesTotales > 5
+        ) {
+
+            if (mesesTotales === 6) {
+                diasVacaciones = 7;
+            }
+
+            else if (mesesTotales === 7) {
+                diasVacaciones = 8;
+            }
+
+            else if (mesesTotales === 8) {
+                diasVacaciones = 9;
+            }
+
+            else if (mesesTotales === 9) {
+                diasVacaciones = 10;
+            }
+
+            else if (mesesTotales === 10) {
+                diasVacaciones = 11;
+            }
+
+            else if (mesesTotales >= 11) {
+                diasVacaciones = 12;
+            }
         }
 
 
         vacaciones =
             salarioDiario *
             diasVacaciones;
-
     }
 
 
@@ -567,7 +591,6 @@ function calcularLiquidacion() {
     ===================================== */
 
     let navidad = 0;
-
 
     if (incluirNavidad === "si") {
 
@@ -578,57 +601,30 @@ function calcularLiquidacion() {
                 1
             );
 
-
-        /*
-            Si comenzó a trabajar durante
-            el año actual, usamos la fecha
-            de ingreso como inicio.
-        */
-
-        const inicioCalculoNavidad =
+        const inicioCalculo =
             ingreso > inicioAno
                 ? ingreso
                 : inicioAno;
 
-
-        let diasDevengadosAno =
+        const diasDevengados =
             Math.floor(
                 (
                     salida -
-                    inicioCalculoNavidad
+                    inicioCalculo
                 ) / MS_DIA
             ) + 1;
 
-
-        if (diasDevengadosAno < 0) {
-
-            diasDevengadosAno = 0;
-
-        }
-
-
-        /*
-            Estimación suponiendo salario
-            mensual constante.
-
-            Equivale aproximadamente a
-            salarios devengados / 12.
-        */
-
         navidad =
             salario *
+            12 *
             (
-                diasDevengadosAno /
+                diasDevengados /
                 365.25
-            );
-
+            ) / 12;
 
         if (navidad > salario) {
-
             navidad = salario;
-
         }
-
     }
 
 
@@ -648,38 +644,30 @@ function calcularLiquidacion() {
     ).innerText =
         formatoDinero(preaviso);
 
-
     document.getElementById(
         "cesantiaLiquidacion"
     ).innerText =
         formatoDinero(cesantia);
-
 
     document.getElementById(
         "vacacionesLiquidacion"
     ).innerText =
         formatoDinero(vacaciones);
 
-
     document.getElementById(
         "navidadLiquidacion"
     ).innerText =
         formatoDinero(navidad);
-
 
     document.getElementById(
         "totalLiquidacion"
     ).innerText =
         formatoDinero(total);
 
-
     document.getElementById(
         "resultado-liquidacion"
-    ).style.display =
-        "block";
-
+    ).style.display = "block";
 }
-
 
 /* =========================================
    CONVERSOR USD → RD$
@@ -873,7 +861,6 @@ function calcularRegalia() {
 
 
 /* =========================================
-   /* =========================================
    NUEVO CÁLCULO - SALARIO
 ========================================= */
 

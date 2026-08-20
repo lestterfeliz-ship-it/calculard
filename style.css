@@ -1334,3 +1334,38 @@ button {
     background: #0f56bd;
     transform: translateY(-1px);
 }
+/* =========================================
+   BOTÓN NUEVO CÁLCULO
+========================================= */
+
+.clear-button {
+    display: block;
+    width: 100%;
+
+    margin-top: 12px;
+    padding: 14px 16px;
+
+    background: #1769e0 !important;
+    color: #ffffff !important;
+
+    border: none !important;
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow: none !important;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.clear-button:hover {
+    background: #0f56bd !important;
+    color: #ffffff !important;
+
+    transform: translateY(-1px);
+}

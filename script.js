@@ -33,6 +33,7 @@ function mostrarCalculadora(tipo) {
     const elemento =
         document.getElementById(id);
 
+
     if (!elemento) {
 
         console.error(
@@ -42,6 +43,7 @@ function mostrarCalculadora(tipo) {
 
         return;
     }
+
 
     elemento.scrollIntoView({
         behavior: "smooth",
@@ -84,22 +86,35 @@ function calcularSalario() {
 
 
     /*
-        ESTIMACIÓN INICIAL.
+        TASAS Y TOPES UTILIZADOS PARA 2026.
 
-        Antes de publicar oficialmente
-        debemos validar tasas, topes y
-        reglas vigentes en RD.
+        AFP trabajador: 2.87%
+        SFS trabajador: 3.04%
+
+        Tope AFP: RD$464,460
+        Tope SFS: RD$232,230
     */
 
 
-    const topeAFP = 464460;
-const topeSFS = 232230;
+    const topeAFP =
+        464460;
 
-const afp =
-    Math.min(salario, topeAFP) * 0.0287;
+    const topeSFS =
+        232230;
 
-const sfs =
-    Math.min(salario, topeSFS) * 0.0304;
+
+    const afp =
+        Math.min(
+            salario,
+            topeAFP
+        ) * 0.0287;
+
+
+    const sfs =
+        Math.min(
+            salario,
+            topeSFS
+        ) * 0.0304;
 
 
     const base =
@@ -112,12 +127,18 @@ const sfs =
         base * 12;
 
 
-    let isr = 0;
+    let isr =
+        0;
 
+
+    /* =====================================
+       ESCALA ISR
+    ===================================== */
 
     if (anual <= 416220) {
 
-        isr = 0;
+        isr =
+            0;
 
     }
 
@@ -164,29 +185,42 @@ const sfs =
         otros;
 
 
-    document.getElementById("neto").innerText =
+    document.getElementById(
+        "neto"
+    ).innerText =
         formatoDinero(neto);
 
 
-    document.getElementById("bruto").innerText =
+    document.getElementById(
+        "bruto"
+    ).innerText =
         formatoDinero(salario);
 
 
-    document.getElementById("afp").innerText =
+    document.getElementById(
+        "afp"
+    ).innerText =
         "-" + formatoDinero(afp);
 
 
-    document.getElementById("sfs").innerText =
+    document.getElementById(
+        "sfs"
+    ).innerText =
         "-" + formatoDinero(sfs);
 
 
-    document.getElementById("isr").innerText =
-        "-" + formatoDinero(isrMensual);
+    document.getElementById(
+        "isr"
+    ).innerText =
+        "-" + formatoDinero(
+            isrMensual
+        );
 
 
     document.getElementById(
         "resultado-salario"
-    ).style.display = "block";
+    ).style.display =
+        "block";
 
 }
 
@@ -264,11 +298,13 @@ function calcularPrestamo() {
 
 
     const totalPagar =
-        cuota * numeroPagos;
+        cuota *
+        numeroPagos;
 
 
     const intereses =
-        totalPagar - monto;
+        totalPagar -
+        monto;
 
 
     document.getElementById(
@@ -297,7 +333,8 @@ function calcularPrestamo() {
 
     document.getElementById(
         "resultado-prestamo"
-    ).style.display = "block";
+    ).style.display =
+        "block";
 
 }
 
@@ -310,26 +347,46 @@ function calcularLiquidacion() {
 
     const salario =
         parseFloat(
-            document.getElementById("salarioLiquidacion").value
+            document.getElementById(
+                "salarioLiquidacion"
+            ).value
         ) || 0;
 
+
     const fechaIngreso =
-        document.getElementById("fechaIngreso").value;
+        document.getElementById(
+            "fechaIngreso"
+        ).value;
+
 
     const fechaSalida =
-        document.getElementById("fechaSalida").value;
+        document.getElementById(
+            "fechaSalida"
+        ).value;
+
 
     const recibioPreaviso =
-        document.getElementById("preaviso").value;
+        document.getElementById(
+            "preaviso"
+        ).value;
+
 
     const incluirCesantia =
-        document.getElementById("incluirCesantia").value;
+        document.getElementById(
+            "incluirCesantia"
+        ).value;
+
 
     const vacacionesTomadas =
-        document.getElementById("vacacionesTomadas").value;
+        document.getElementById(
+            "vacacionesTomadas"
+        ).value;
+
 
     const incluirNavidad =
-        document.getElementById("incluirNavidad").value;
+        document.getElementById(
+            "incluirNavidad"
+        ).value;
 
 
     if (
@@ -347,16 +404,21 @@ function calcularLiquidacion() {
 
 
     const ingreso =
-        new Date(fechaIngreso + "T00:00:00");
+        new Date(
+            fechaIngreso + "T00:00:00"
+        );
+
 
     const salida =
-        new Date(fechaSalida + "T00:00:00");
+        new Date(
+            fechaSalida + "T00:00:00"
+        );
 
 
-    if (salida < ingreso) {
+    if (salida <= ingreso) {
 
         alert(
-            "La fecha de salida debe ser igual o posterior a la fecha de ingreso."
+            "La fecha de salida debe ser posterior a la fecha de ingreso."
         );
 
         return;
@@ -368,62 +430,43 @@ function calcularLiquidacion() {
 
 
     /* =====================================
-       ANTIGÜEDAD CALENDARIO
+       FECHAS UTC
     ===================================== */
 
-    let anosCompletos =
-        salida.getFullYear() -
-        ingreso.getFullYear();
+    const ingresoUTC =
+        Date.UTC(
+            ingreso.getFullYear(),
+            ingreso.getMonth(),
+            ingreso.getDate()
+        );
 
-    let aniversario =
-        new Date(
+
+    const salidaUTC =
+        Date.UTC(
             salida.getFullYear(),
-            ingreso.getMonth(),
-            ingreso.getDate()
-        );
-
-    if (salida < aniversario) {
-        anosCompletos--;
-    }
-
-    if (anosCompletos < 0) {
-        anosCompletos = 0;
-    }
-
-
-    const fechaUltimoAniversario =
-        new Date(
-            ingreso.getFullYear() + anosCompletos,
-            ingreso.getMonth(),
-            ingreso.getDate()
+            salida.getMonth(),
+            salida.getDate()
         );
 
 
-    let mesesRestantes =
-        (
-            salida.getFullYear() -
-            fechaUltimoAniversario.getFullYear()
-        ) * 12 +
-        (
-            salida.getMonth() -
-            fechaUltimoAniversario.getMonth()
+    const diasTrabajados =
+        Math.floor(
+            (
+                salidaUTC -
+                ingresoUTC
+            ) /
+            MS_DIA
         );
 
-    if (
-        salida.getDate() <
-        fechaUltimoAniversario.getDate()
-    ) {
-        mesesRestantes--;
-    }
 
-    if (mesesRestantes < 0) {
-        mesesRestantes = 0;
-    }
+    const mesesTrabajados =
+        diasTrabajados /
+        30.4375;
 
 
-    const mesesTotales =
-        anosCompletos * 12 +
-        mesesRestantes;
+    const anosTrabajados =
+        diasTrabajados /
+        365.25;
 
 
     /* =====================================
@@ -431,40 +474,60 @@ function calcularLiquidacion() {
     ===================================== */
 
     const salarioDiario =
-        salario / 23.83;
+        salario /
+        23.83;
 
 
     /* =====================================
        PREAVISO
     ===================================== */
 
-    let diasPreaviso = 0;
+    let diasPreaviso =
+        0;
+
 
     if (
-        mesesTotales >= 3 &&
-        mesesTotales < 6
+        mesesTrabajados >= 3 &&
+        mesesTrabajados < 6
     ) {
-        diasPreaviso = 7;
+
+        diasPreaviso =
+            7;
+
     }
 
     else if (
-        mesesTotales >= 6 &&
-        mesesTotales < 12
+        mesesTrabajados >= 6 &&
+        mesesTrabajados < 12
     ) {
-        diasPreaviso = 14;
+
+        diasPreaviso =
+            14;
+
     }
 
-    else if (mesesTotales >= 12) {
-        diasPreaviso = 28;
+    else if (
+        mesesTrabajados >= 12
+    ) {
+
+        diasPreaviso =
+            28;
+
     }
 
 
-    let preaviso = 0;
+    let preaviso =
+        0;
 
-    if (recibioPreaviso === "no") {
+
+    if (
+        recibioPreaviso === "no"
+    ) {
+
         preaviso =
             salarioDiario *
             diasPreaviso;
+
     }
 
 
@@ -472,38 +535,75 @@ function calcularLiquidacion() {
        CESANTÍA
     ===================================== */
 
-    let diasCesantia = 0;
+    let diasCesantia =
+        0;
 
-    if (incluirCesantia === "si") {
+
+    if (
+        incluirCesantia === "si"
+    ) {
 
         if (
-            mesesTotales >= 3 &&
-            mesesTotales < 6
+            mesesTrabajados >= 3 &&
+            mesesTrabajados < 6
         ) {
-            diasCesantia = 6;
+
+            diasCesantia =
+                6;
+
         }
 
         else if (
-            mesesTotales >= 6 &&
-            mesesTotales < 12
+            mesesTrabajados >= 6 &&
+            mesesTrabajados < 12
         ) {
-            diasCesantia = 13;
+
+            diasCesantia =
+                13;
+
         }
 
-        else if (anosCompletos >= 1) {
+        else if (
+            mesesTrabajados >= 12
+        ) {
 
-            if (anosCompletos <= 5) {
+            const anosCompletos =
+                Math.floor(
+                    mesesTrabajados /
+                    12
+                );
+
+
+            const mesesRestantes =
+                mesesTrabajados -
+                (
+                    anosCompletos *
+                    12
+                );
+
+
+            if (
+                anosCompletos <= 5
+            ) {
+
                 diasCesantia =
-                    anosCompletos * 21;
+                    anosCompletos *
+                    21;
+
             }
 
             else {
+
                 diasCesantia =
                     (5 * 21) +
                     (
-                        (anosCompletos - 5) *
+                        (
+                            anosCompletos -
+                            5
+                        ) *
                         23
                     );
+
             }
 
 
@@ -511,15 +611,23 @@ function calcularLiquidacion() {
                 mesesRestantes >= 3 &&
                 mesesRestantes < 6
             ) {
-                diasCesantia += 6;
+
+                diasCesantia +=
+                    6;
+
             }
 
             else if (
                 mesesRestantes >= 6
             ) {
-                diasCesantia += 13;
+
+                diasCesantia +=
+                    13;
+
             }
+
         }
+
     }
 
 
@@ -532,57 +640,101 @@ function calcularLiquidacion() {
        VACACIONES
     ===================================== */
 
-    let vacaciones = 0;
+    let vacaciones =
+        0;
 
-    if (vacacionesTomadas === "no") {
 
-        let diasVacaciones = 0;
+    if (
+        vacacionesTomadas === "no"
+    ) {
+
+        let diasVacaciones =
+            0;
+
 
         if (
-            anosCompletos >= 1 &&
-            anosCompletos < 5
+            anosTrabajados >= 1 &&
+            anosTrabajados < 5
         ) {
-            diasVacaciones = 14;
-        }
 
-        else if (anosCompletos >= 5) {
-            diasVacaciones = 18;
+            diasVacaciones =
+                14;
+
         }
 
         else if (
-            anosCompletos === 0 &&
-            mesesTotales > 5
+            anosTrabajados >= 5
         ) {
 
-            if (mesesTotales === 6) {
-                diasVacaciones = 7;
-            }
+            diasVacaciones =
+                18;
 
-            else if (mesesTotales === 7) {
-                diasVacaciones = 8;
-            }
+        }
 
-            else if (mesesTotales === 8) {
-                diasVacaciones = 9;
-            }
+        else if (
+            mesesTrabajados >= 6 &&
+            mesesTrabajados < 7
+        ) {
 
-            else if (mesesTotales === 9) {
-                diasVacaciones = 10;
-            }
+            diasVacaciones =
+                7;
 
-            else if (mesesTotales === 10) {
-                diasVacaciones = 11;
-            }
+        }
 
-            else if (mesesTotales >= 11) {
-                diasVacaciones = 12;
-            }
+        else if (
+            mesesTrabajados >= 7 &&
+            mesesTrabajados < 8
+        ) {
+
+            diasVacaciones =
+                8;
+
+        }
+
+        else if (
+            mesesTrabajados >= 8 &&
+            mesesTrabajados < 9
+        ) {
+
+            diasVacaciones =
+                9;
+
+        }
+
+        else if (
+            mesesTrabajados >= 9 &&
+            mesesTrabajados < 10
+        ) {
+
+            diasVacaciones =
+                10;
+
+        }
+
+        else if (
+            mesesTrabajados >= 10 &&
+            mesesTrabajados < 11
+        ) {
+
+            diasVacaciones =
+                11;
+
+        }
+
+        else if (
+            mesesTrabajados >= 11
+        ) {
+
+            diasVacaciones =
+                12;
+
         }
 
 
         vacaciones =
             salarioDiario *
             diasVacaciones;
+
     }
 
 
@@ -590,41 +742,101 @@ function calcularLiquidacion() {
        SALARIO DE NAVIDAD
     ===================================== */
 
-    let navidad = 0;
+    let navidad =
+        0;
 
-    if (incluirNavidad === "si") {
+
+    if (
+        incluirNavidad === "si"
+    ) {
+
+        const anoSalida =
+            salida.getFullYear();
+
 
         const inicioAno =
             new Date(
-                salida.getFullYear(),
+                anoSalida,
                 0,
                 1
             );
+
 
         const inicioCalculo =
             ingreso > inicioAno
                 ? ingreso
                 : inicioAno;
 
+
+        const inicioCalculoUTC =
+            Date.UTC(
+                inicioCalculo.getFullYear(),
+                inicioCalculo.getMonth(),
+                inicioCalculo.getDate()
+            );
+
+
+        /*
+            +1 porque tanto el día inicial
+            como el día final forman parte
+            del período trabajado.
+        */
+
         const diasDevengados =
             Math.floor(
                 (
-                    salida -
-                    inicioCalculo
-                ) / MS_DIA
+                    salidaUTC -
+                    inicioCalculoUTC
+                ) /
+                MS_DIA
             ) + 1;
+
+
+        const esBisiesto =
+            (
+                anoSalida % 4 === 0 &&
+                anoSalida % 100 !== 0
+            ) ||
+            (
+                anoSalida % 400 === 0
+            );
+
+
+        const diasAno =
+            esBisiesto
+                ? 366
+                : 365;
+
+
+        /*
+            ESTIMACIÓN PARA SALARIO
+            MENSUAL CONSTANTE.
+
+            Ejemplo:
+            01/01/2025 al 31/12/2025
+            = 365 días.
+
+            RD$30,000 × 365 / 365
+            = RD$30,000.
+        */
 
         navidad =
             salario *
-            12 *
             (
                 diasDevengados /
-                365.25
-            ) / 12;
+                diasAno
+            );
 
-        if (navidad > salario) {
-            navidad = salario;
+
+        if (
+            navidad > salario
+        ) {
+
+            navidad =
+                salario;
+
         }
+
     }
 
 
@@ -642,32 +854,50 @@ function calcularLiquidacion() {
     document.getElementById(
         "preavisoLiquidacion"
     ).innerText =
-        formatoDinero(preaviso);
+        formatoDinero(
+            preaviso
+        );
+
 
     document.getElementById(
         "cesantiaLiquidacion"
     ).innerText =
-        formatoDinero(cesantia);
+        formatoDinero(
+            cesantia
+        );
+
 
     document.getElementById(
         "vacacionesLiquidacion"
     ).innerText =
-        formatoDinero(vacaciones);
+        formatoDinero(
+            vacaciones
+        );
+
 
     document.getElementById(
         "navidadLiquidacion"
     ).innerText =
-        formatoDinero(navidad);
+        formatoDinero(
+            navidad
+        );
+
 
     document.getElementById(
         "totalLiquidacion"
     ).innerText =
-        formatoDinero(total);
+        formatoDinero(
+            total
+        );
+
 
     document.getElementById(
         "resultado-liquidacion"
-    ).style.display = "block";
+    ).style.display =
+        "block";
+
 }
+
 
 /* =========================================
    CONVERSOR USD → RD$
@@ -705,13 +935,16 @@ function convertirDolar() {
 
 
     const resultado =
-        dolares * tasa;
+        dolares *
+        tasa;
 
 
     document.getElementById(
         "resultadoDolar"
     ).innerText =
-        formatoDinero(resultado);
+        formatoDinero(
+            resultado
+        );
 
 
     document.getElementById(
@@ -744,7 +977,9 @@ function calcularPresupuesto() {
         ) || 0;
 
 
-    if (ingresos <= 0) {
+    if (
+        ingresos <= 0
+    ) {
 
         alert(
             "Escribe tus ingresos mensuales."
@@ -754,7 +989,9 @@ function calcularPresupuesto() {
     }
 
 
-    if (gastos < 0) {
+    if (
+        gastos < 0
+    ) {
 
         alert(
             "Los gastos no pueden ser negativos."
@@ -765,25 +1002,32 @@ function calcularPresupuesto() {
 
 
     const disponible =
-        ingresos - gastos;
+        ingresos -
+        gastos;
 
 
     document.getElementById(
         "disponible"
     ).innerText =
-        formatoDinero(disponible);
+        formatoDinero(
+            disponible
+        );
 
 
     document.getElementById(
         "ingresosResultado"
     ).innerText =
-        formatoDinero(ingresos);
+        formatoDinero(
+            ingresos
+        );
 
 
     document.getElementById(
         "gastosResultado"
     ).innerText =
-        formatoDinero(gastos);
+        formatoDinero(
+            gastos
+        );
 
 
     document.getElementById(
@@ -816,7 +1060,9 @@ function calcularRegalia() {
         ) || 0;
 
 
-    if (salario <= 0) {
+    if (
+        salario <= 0
+    ) {
 
         alert(
             "Escribe tu salario mensual."
@@ -843,13 +1089,16 @@ function calcularRegalia() {
         (
             salario *
             meses
-        ) / 12;
+        ) /
+        12;
 
 
     document.getElementById(
         "regaliaResultado"
     ).innerText =
-        formatoDinero(regalia);
+        formatoDinero(
+            regalia
+        );
 
 
     document.getElementById(
@@ -866,17 +1115,205 @@ function calcularRegalia() {
 
 function limpiarSalario() {
 
-    // Limpiar los campos
-    document.getElementById("salario").value = "";
-    document.getElementById("otros").value = "";
+    document.getElementById(
+        "salario"
+    ).value = "";
 
-    // Ocultar todo el resultado
+
+    document.getElementById(
+        "otros"
+    ).value = "";
+
+
     document.getElementById(
         "resultado-salario"
-    ).style.display = "none";
+    ).style.display =
+        "none";
 
-    // Volver al campo salario
-    document.getElementById("salario").focus();
+
+    document.getElementById(
+        "salario"
+    ).focus();
+
+}
+
+
+/* =========================================
+   NUEVO CÁLCULO - PRÉSTAMO
+========================================= */
+
+function limpiarPrestamo() {
+
+    document.getElementById(
+        "montoPrestamo"
+    ).value = "";
+
+
+    document.getElementById(
+        "tasaPrestamo"
+    ).value = "";
+
+
+    document.getElementById(
+        "plazoPrestamo"
+    ).value = "";
+
+
+    document.getElementById(
+        "resultado-prestamo"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "montoPrestamo"
+    ).focus();
+
+}
+
+
+/* =========================================
+   NUEVO CÁLCULO - LIQUIDACIÓN
+========================================= */
+
+function limpiarLiquidacion() {
+
+    document.getElementById(
+        "salarioLiquidacion"
+    ).value = "";
+
+
+    document.getElementById(
+        "fechaIngreso"
+    ).value = "";
+
+
+    document.getElementById(
+        "fechaSalida"
+    ).value = "";
+
+
+    document.getElementById(
+        "preaviso"
+    ).value =
+        "no";
+
+
+    document.getElementById(
+        "incluirCesantia"
+    ).value =
+        "si";
+
+
+    document.getElementById(
+        "vacacionesTomadas"
+    ).value =
+        "no";
+
+
+    document.getElementById(
+        "incluirNavidad"
+    ).value =
+        "si";
+
+
+    document.getElementById(
+        "resultado-liquidacion"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "salarioLiquidacion"
+    ).focus();
+
+}
+
+
+/* =========================================
+   NUEVO CÁLCULO - DÓLAR
+========================================= */
+
+function limpiarDolar() {
+
+    document.getElementById(
+        "dolares"
+    ).value = "";
+
+
+    document.getElementById(
+        "tasaDolar"
+    ).value = "";
+
+
+    document.getElementById(
+        "resultado-dolar"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "dolares"
+    ).focus();
+
+}
+
+
+/* =========================================
+   NUEVO CÁLCULO - PRESUPUESTO
+========================================= */
+
+function limpiarPresupuesto() {
+
+    document.getElementById(
+        "ingresos"
+    ).value = "";
+
+
+    document.getElementById(
+        "gastos"
+    ).value = "";
+
+
+    document.getElementById(
+        "resultado-presupuesto"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "ingresos"
+    ).focus();
+
+}
+
+
+/* =========================================
+   NUEVO CÁLCULO - REGALÍA
+========================================= */
+
+function limpiarRegalia() {
+
+    document.getElementById(
+        "salarioRegalia"
+    ).value = "";
+
+
+    document.getElementById(
+        "mesesRegalia"
+    ).value = "";
+
+
+    document.getElementById(
+        "resultado-regalia"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "salarioRegalia"
+    ).focus();
+
 }
 
 
@@ -887,90 +1324,3 @@ function limpiarSalario() {
 console.log(
     "CalculaRD cargado correctamente."
 );
-/* =========================================
-   NUEVO CÁLCULO - PRÉSTAMO
-========================================= */
-
-function limpiarPrestamo() {
-
-    // Limpiar campos
-    document.getElementById("montoPrestamo").value = "";
-    document.getElementById("tasaPrestamo").value = "";
-    document.getElementById("plazoPrestamo").value = "";
-
-    // Ocultar todo el resultado
-    document.getElementById(
-        "resultado-prestamo"
-    ).style.display = "none";
-
-    // Volver al primer campo
-    document.getElementById("montoPrestamo").focus();
-}
-/* =========================================
-   NUEVO CÁLCULO - LIQUIDACIÓN
-========================================= */
-
-function limpiarLiquidacion() {
-
-    document.getElementById("salarioLiquidacion").value = "";
-    document.getElementById("fechaIngreso").value = "";
-    document.getElementById("fechaSalida").value = "";
-
-    document.getElementById("preaviso").value = "no";
-    document.getElementById("incluirCesantia").value = "si";
-    document.getElementById("vacacionesTomadas").value = "no";
-    document.getElementById("incluirNavidad").value = "si";
-
-    document.getElementById(
-        "resultado-liquidacion"
-    ).style.display = "none";
-
-    document.getElementById(
-        "salarioLiquidacion"
-    ).focus();
-}
-/* =========================================
-   NUEVO CÁLCULO - DÓLAR
-========================================= */
-
-function limpiarDolar() {
-
-    document.getElementById("dolares").value = "";
-    document.getElementById("tasaDolar").value = "";
-
-    document.getElementById(
-        "resultado-dolar"
-    ).style.display = "none";
-
-    document.getElementById("dolares").focus();
-}
-/* =========================================
-   NUEVO CÁLCULO - PRESUPUESTO
-========================================= */
-
-function limpiarPresupuesto() {
-
-    document.getElementById("ingresos").value = "";
-    document.getElementById("gastos").value = "";
-
-    document.getElementById(
-        "resultado-presupuesto"
-    ).style.display = "none";
-
-    document.getElementById("ingresos").focus();
-}
-/* =========================================
-   NUEVO CÁLCULO - REGALÍA
-========================================= */
-
-function limpiarRegalia() {
-
-    document.getElementById("salarioRegalia").value = "";
-    document.getElementById("mesesRegalia").value = "";
-
-    document.getElementById(
-        "resultado-regalia"
-    ).style.display = "none";
-
-    document.getElementById("salarioRegalia").focus();
-}

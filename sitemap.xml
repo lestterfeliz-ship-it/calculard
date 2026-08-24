@@ -67,14 +67,23 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
 </url>
+
 <url>
     <loc>https://calculardrd.com/como-calcular-prestaciones-laborales-rd.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
 </url>
+
 <url>
     <loc>https://calculardrd.com/como-calcular-regalia-pascual-rd.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
 </url>
+
+<url>
+    <loc>https://calculardrd.com/como-calcular-cesantia-rd.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+</url>
+
 </urlset>

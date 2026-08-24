@@ -3,65 +3,73 @@
 
 <head>
 
-    <!-- GOOGLE ANALYTICS -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FY5VRZV0E"></script>
+    <!-- GOOGLE ANALYTICS - CARGA OPTIMIZADA -->
+<script>
+    window.dataLayer = window.dataLayer || [];
 
-    <script>
-        window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+    window.addEventListener('load', function () {
+
+        var script = document.createElement('script');
+
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8FY5VRZV0E';
+
+        document.head.appendChild(script);
 
         gtag('js', new Date());
         gtag('config', 'G-8FY5VRZV0E');
-    </script>
+    });
+</script>
 
 
-    <!-- CONFIGURACIÓN BÁSICA -->
-    <meta charset="UTF-8">
+<!-- CONFIGURACIÓN BÁSICA -->
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-
-    <!-- SEO -->
-    <title>
-        Calculadoras RD: Salario, Préstamos y Liquidación | CalculaRD
-    </title>
-
-    <meta name="description"
-          content="Calcula tu salario neto, préstamos, liquidación laboral, regalía pascual, presupuesto y conversión de dólares en República Dominicana con CalculaRD.">
-
-    <link rel="canonical"
-          href="https://calculardrd.com/">
-
-    <meta name="author"
-          content="CalculaRD">
-
-    <meta name="robots"
-          content="index, follow">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 
-    <!-- GOOGLE SEARCH CONSOLE -->
-    <meta name="google-site-verification"
-          content="CvdbgXOwIirFFnvXW9jFmvYIIYq7up4gcTUw-wGNXRc">
+<!-- SEO -->
+<title>
+    Calculadoras RD: Salario, Préstamos y Liquidación | CalculaRD
+</title>
+
+<meta name="description"
+      content="Calcula tu salario neto, préstamos, liquidación laboral, regalía pascual, presupuesto y conversión de dólares en República Dominicana con CalculaRD.">
+
+<link rel="canonical"
+      href="https://calculardrd.com/">
+
+<meta name="author"
+      content="CalculaRD">
+
+<meta name="robots"
+      content="index, follow">
 
 
-    <!-- OPEN GRAPH / WHATSAPP / FACEBOOK -->
-    <meta property="og:title"
-          content="Calculadoras RD: Salario, Préstamos y Liquidación | CalculaRD">
+<!-- GOOGLE SEARCH CONSOLE -->
+<meta name="google-site-verification"
+      content="CvdbgXOwIirFFnvXW9jFmvYIIYq7up4gcTUw-wGNXRc">
 
-    <meta property="og:description"
-          content="Calcula tu salario neto, préstamos, liquidación laboral, regalía pascual, presupuesto y dólares con CalculaRD, herramientas gratuitas para República Dominicana.">
 
-    <meta property="og:type"
-          content="website">
+<!-- OPEN GRAPH / WHATSAPP / FACEBOOK -->
+<meta property="og:title"
+      content="Calculadoras RD: Salario, Préstamos y Liquidación | CalculaRD">
 
-    <meta property="og:locale"
-          content="es_DO">
+<meta property="og:description"
+      content="Calcula tu salario neto, préstamos, liquidación laboral, regalía pascual, presupuesto y dólares con CalculaRD, herramientas gratuitas para República Dominicana.">
 
-   <meta property="og:url"
+<meta property="og:type"
+      content="website">
+
+<meta property="og:locale"
+      content="es_DO">
+
+<meta property="og:url"
       content="https://calculardrd.com/">
 
 <meta property="og:image"
@@ -81,18 +89,19 @@
 <meta name="twitter:image"
       content="https://calculardrd.com/logo.png">
 
-    <!-- ICONO DEL NAVEGADOR -->
-    <link rel="icon"
-          type="image/png"
-          href="logo.png">
+
+<!-- ICONO DEL NAVEGADOR -->
+<link rel="icon"
+      type="image/png"
+      href="logo.png">
 
 
-    <!-- CSS -->
-    <link rel="stylesheet"
-          href="style.css">
+<!-- CSS -->
+<link rel="stylesheet"
+      href="style.css">
 
 
-   <!-- DATOS ESTRUCTURADOS PARA GOOGLE -->
+<!-- DATOS ESTRUCTURADOS PARA GOOGLE -->
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",

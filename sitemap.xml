@@ -122,4 +122,12 @@
         <priority>0.8</priority>
     </url>
 
+    <!-- GUÍA PRESUPUESTO -->
+
+    <url>
+        <loc>https://calculardrd.com/como-calcular-presupuesto-mensual-rd.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
 </urlset>

@@ -130,4 +130,12 @@
         <priority>0.8</priority>
     </url>
 
+    <!-- GUÍA DÓLAR -->
+
+    <url>
+        <loc>https://calculardrd.com/como-convertir-dolares-a-pesos-dominicanos.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
 </urlset>

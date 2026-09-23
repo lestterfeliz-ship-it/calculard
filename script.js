@@ -605,29 +605,11 @@ function calcularLiquidacion() {
                 );
 
 
-            if (
-                anosCompletos <= 5
-            ) {
-
-                diasCesantia =
-                    anosCompletos *
-                    21;
-
-            }
-
-            else {
-
-                diasCesantia =
-                    (5 * 21) +
-                    (
-                        (
-                            anosCompletos -
-                            5
-                        ) *
-                        23
-                    );
-
-            }
+            // Art. 80: al superar cinco años, 23 días por CADA año completo,
+            // no solo por los años adicionales al quinto.
+            diasCesantia = anosCompletos > 5
+                ? anosCompletos * 23
+                : anosCompletos * 21;
 
 
             if (

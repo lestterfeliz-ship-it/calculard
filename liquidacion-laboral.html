@@ -293,6 +293,14 @@
 
                     </select>
 
+                    <label for="tipoVacaciones">¿Qué vacaciones tienes pendientes?</label>
+                    <select id="tipoVacaciones">
+                        <option value="sin-determinar" selected>Selecciona el tipo antes de calcular</option>
+                        <option value="anuales">Período anual completo pendiente</option>
+                        <option value="proporcionales">Proporcionales: cumplo las condiciones del artículo 179</option>
+                        <option value="ninguna">No tengo vacaciones pendientes</option>
+                    </select>
+                    <p class="form-note">Si disfrutaste tus vacaciones, selecciona «No tengo vacaciones pendientes». Para las proporcionales, el artículo 179 exige circunstancias específicas; no basta con haber trabajado más de cinco meses.</p>
 
                     <label for="incluirNavidad">
                         ¿Incluir salario de Navidad?
@@ -310,6 +318,9 @@
 
                     </select>
 
+                    <label for="salariosOrdinariosAno">Total de salarios ordinarios devengados en el año de salida (RD$, opcional)</label>
+                    <input id="salariosOrdinariosAno" type="number" min="0" step="0.01" placeholder="Ej.: 360000">
+                    <p class="form-note">Si conoces este total, el salario de Navidad se estima dividiéndolo entre 12. Excluye horas extras y participación en beneficios. Si lo dejas vacío, se usa una aproximación con salario mensual constante.</p>
 
                     <button
                         class="calculate-button"
@@ -511,9 +522,10 @@
                     </p>
 
                     <p>
-                        Si seleccionas que no fueron tomadas, CalculaRD estima el valor de las
-                        vacaciones según el tiempo trabajado. La antigüedad es importante porque
-                        modifica la cantidad de días considerada por la herramienta.
+                        Si seleccionas que no fueron tomadas, debes indicar si tienes un período anual
+                        completo pendiente o si cumples las condiciones específicas para vacaciones
+                        proporcionales del artículo 179. La herramienta no puede determinar por sí sola
+                        el último período disfrutado ni resolver controversias sobre vacaciones vencidas.
                     </p>
 
                     <p>
@@ -535,9 +547,10 @@
 
                     <p>
                         La herramienta está diseñada como una estimación simplificada utilizando el
-                        salario mensual introducido. Si tu salario cambió durante el año, recibiste
-                        remuneraciones variables o tu historial salarial requiere un análisis más
-                        detallado, el resultado real puede ser diferente.
+                        salario mensual introducido cuando no se informa el total de salarios ordinarios
+                        devengados durante el año calendario. Si proporcionas ese total, se divide
+                        entre doce. No se incluyen horas extras ni participación en beneficios;
+                        confirma las condiciones de tu contrato y cualquier límite legal aplicable.
                     </p>
 
 
@@ -846,7 +859,7 @@
 
 
     <!-- JAVASCRIPT -->
-<script src="script.js?v=20260821-3"></script>
+<script src="script.js?v=20260923-qa1"></script>
 
 </body>
 </html>

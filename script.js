@@ -257,7 +257,7 @@ function calcularPrestamo() {
 
     if (
         monto <= 0 ||
-        tasaAnual <= 0 ||
+        tasaAnual < 0 ||
         plazoAnios <= 0
     ) {
 
@@ -279,23 +279,11 @@ function calcularPrestamo() {
         plazoAnios * 12;
 
 
-    const cuota =
-        monto *
-        (
-            tasaMensual *
-            Math.pow(
-                1 + tasaMensual,
-                numeroPagos
-            )
-        )
-        /
-        (
-            Math.pow(
-                1 + tasaMensual,
-                numeroPagos
-            ) - 1
-        );
-
+    const cuota = tasaMensual === 0
+        ? monto / numeroPagos
+        : monto * (
+            tasaMensual * Math.pow(1 + tasaMensual, numeroPagos)
+        ) / (Math.pow(1 + tasaMensual, numeroPagos) - 1);
 
     const totalPagar =
         cuota *
@@ -383,6 +371,10 @@ function calcularLiquidacion() {
         ).value;
 
 
+    const tipoVacaciones = document.getElementById("tipoVacaciones").value;
+    const salariosOrdinariosCampo = document.getElementById("salariosOrdinariosAno").value.trim();
+    const salariosOrdinariosAno = salariosOrdinariosCampo === "" ? null : Number(salariosOrdinariosCampo);
+
     const incluirNavidad =
         document.getElementById(
             "incluirNavidad"
@@ -402,6 +394,15 @@ function calcularLiquidacion() {
         return;
     }
 
+
+    if (vacacionesTomadas === "no" && tipoVacaciones === "sin-determinar") {
+        alert("Indica qué vacaciones tienes pendientes antes de calcular.");
+        return;
+    }
+    if (salariosOrdinariosAno !== null && (!Number.isFinite(salariosOrdinariosAno) || salariosOrdinariosAno < 0)) {
+        alert("Introduce un total válido de salarios ordinarios o deja el campo vacío.");
+        return;
+    }
 
     const ingreso =
         new Date(
@@ -459,15 +460,37 @@ function calcularLiquidacion() {
         );
 
 
-    const mesesTrabajados =
-        diasTrabajados /
-        30.4375;
+    /* Antigüedad por aniversarios calendario, no por meses promedio.
+       Si el mes de aniversario no tiene el día original (p. ej.,
+       ingreso 31 de enero), se usa su último día. */
+    const aniversario = (meses) => {
+        const primerDia = new Date(Date.UTC(
+            ingreso.getFullYear(), ingreso.getMonth() + meses, 1
+        ));
+        const ultimoDia = new Date(Date.UTC(
+            primerDia.getUTCFullYear(), primerDia.getUTCMonth() + 1, 0
+        )).getUTCDate();
+        return Date.UTC(
+            primerDia.getUTCFullYear(), primerDia.getUTCMonth(),
+            Math.min(ingreso.getDate(), ultimoDia)
+        );
+    };
 
+    let mesesCompletos =
+        (salida.getFullYear() - ingreso.getFullYear()) * 12 +
+        (salida.getMonth() - ingreso.getMonth());
 
-    const anosTrabajados =
-        diasTrabajados /
-        365.25;
+    if (salidaUTC < aniversario(mesesCompletos)) {
+        mesesCompletos--;
+    }
 
+    const aniversarioActual = aniversario(mesesCompletos);
+    const aniversarioSiguiente = aniversario(mesesCompletos + 1);
+    const fraccionMes =
+        (salidaUTC - aniversarioActual) /
+        (aniversarioSiguiente - aniversarioActual);
+    const mesesTrabajados = mesesCompletos + fraccionMes;
+    const anosTrabajados = mesesTrabajados / 12;
 
     /* =====================================
        SALARIO DIARIO
@@ -645,7 +668,7 @@ function calcularLiquidacion() {
 
 
     if (
-        vacacionesTomadas === "no"
+        vacacionesTomadas === "no" && tipoVacaciones !== "ninguna"
     ) {
 
         let diasVacaciones =
@@ -653,7 +676,7 @@ function calcularLiquidacion() {
 
 
         if (
-            anosTrabajados >= 1 &&
+            tipoVacaciones === "anuales" && anosTrabajados >= 1 &&
             anosTrabajados < 5
         ) {
 
@@ -663,7 +686,7 @@ function calcularLiquidacion() {
         }
 
         else if (
-            anosTrabajados >= 5
+            tipoVacaciones === "anuales" && anosTrabajados >= 5
         ) {
 
             diasVacaciones =
@@ -671,66 +694,39 @@ function calcularLiquidacion() {
 
         }
 
-        else if (
-            mesesTrabajados >= 6 &&
-            mesesTrabajados < 7
-        ) {
-
-            diasVacaciones =
-                7;
-
+        /* Art. 179-180: la escala proporcional se aplica
+           únicamente en los supuestos previstos por el art. 179.
+           Los límites son estrictos: MÁS de 5, 6, ... 11 meses. */
+        else if (tipoVacaciones === "proporcionales" && mesesTrabajados < 12 && mesesTrabajados > 11) {
+            diasVacaciones = 12;
+        }
+        else if (tipoVacaciones === "proporcionales" && mesesTrabajados < 12 && mesesTrabajados > 10) {
+            diasVacaciones = 11;
+        }
+        else if (tipoVacaciones === "proporcionales" && mesesTrabajados < 12 && mesesTrabajados > 9) {
+            diasVacaciones = 10;
+        }
+        else if (tipoVacaciones === "proporcionales" && mesesTrabajados < 12 && mesesTrabajados > 8) {
+            diasVacaciones = 9;
+        }
+        else if (tipoVacaciones === "proporcionales" && mesesTrabajados < 12 && mesesTrabajados > 7) {
+            diasVacaciones = 8;
+        }
+        else if (tipoVacaciones === "proporcionales" && mesesTrabajados < 12 && mesesTrabajados > 6) {
+            diasVacaciones = 7;
+        }
+        else if (tipoVacaciones === "proporcionales" && mesesTrabajados < 12 && mesesTrabajados > 5) {
+            diasVacaciones = 6;
         }
 
-        else if (
-            mesesTrabajados >= 7 &&
-            mesesTrabajados < 8
-        ) {
-
-            diasVacaciones =
-                8;
-
+        if (tipoVacaciones === "anuales" && anosTrabajados < 1) {
+            alert("No se ha cumplido un año: revisa si corresponde la opción proporcional del artículo 179.");
+            return;
         }
-
-        else if (
-            mesesTrabajados >= 8 &&
-            mesesTrabajados < 9
-        ) {
-
-            diasVacaciones =
-                9;
-
+        if (tipoVacaciones === "proporcionales" && (anosTrabajados >= 1 || mesesTrabajados <= 5)) {
+            alert("La escala proporcional de esta herramienta solo cubre más de 5 meses y menos de 1 año, cuando se cumple el artículo 179.");
+            return;
         }
-
-        else if (
-            mesesTrabajados >= 9 &&
-            mesesTrabajados < 10
-        ) {
-
-            diasVacaciones =
-                10;
-
-        }
-
-        else if (
-            mesesTrabajados >= 10 &&
-            mesesTrabajados < 11
-        ) {
-
-            diasVacaciones =
-                11;
-
-        }
-
-        else if (
-            mesesTrabajados >= 11
-        ) {
-
-            diasVacaciones =
-                12;
-
-        }
-
-
         vacaciones =
             salarioDiario *
             diasVacaciones;
@@ -828,7 +824,11 @@ function calcularLiquidacion() {
             );
 
 
-        if (
+        if (salariosOrdinariosAno !== null) {
+            navidad = salariosOrdinariosAno / 12;
+        }
+
+        if (salariosOrdinariosAno === null &&
             navidad > salario
         ) {
 
@@ -1210,6 +1210,9 @@ function limpiarLiquidacion() {
     ).value =
         "no";
 
+
+    document.getElementById("tipoVacaciones").value = "sin-determinar";
+    document.getElementById("salariosOrdinariosAno").value = "";
 
     document.getElementById(
         "incluirNavidad"

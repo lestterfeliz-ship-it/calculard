@@ -839,6 +839,18 @@
     </select>
 
 
+    <label for="tipoVacaciones">¿Qué vacaciones tienes pendientes?</label>
+    <select id="tipoVacaciones">
+        <option value="sin-determinar">Selecciona una opción</option>
+        <option value="ninguna">Ninguna</option>
+        <option value="anuales">Vacaciones anuales pendientes</option>
+        <option value="proporcionales">Vacaciones proporcionales (cuando correspondan)</option>
+    </select>
+
+    <label for="salariosOrdinariosAno">Salarios ordinarios devengados durante el año de salida (opcional)</label>
+    <small class="field-help">Si conoces el total real del año, introdúcelo para estimar el salario de Navidad. De lo contrario, se utilizará el salario mensual constante.</small>
+    <input type="number" id="salariosOrdinariosAno" min="0" step="0.01" placeholder="Opcional">
+
     <label for="incluirNavidad">
         ¿Incluir salario de Navidad?
     </label>
@@ -1565,6 +1577,26 @@
             </p>
 
 
+            <h2>¿Cómo elaboramos las herramientas?</h2>
+            <p>
+                CalculaRD es un proyecto independiente enfocado en hacer más accesibles
+                los cálculos cotidianos en República Dominicana. Acompañamos las
+                calculadoras con guías, ejemplos y referencias para que puedas
+                comprender los conceptos y revisar los resultados.
+            </p>
+            <p>
+                Procuramos revisar el funcionamiento de las herramientas y actualizar
+                sus explicaciones cuando cambian las normas o detectamos errores.
+                Las tasas, los topes y las condiciones aplicables pueden cambiar;
+                consulta las fuentes oficiales cuando necesites cifras vigentes.
+            </p>
+            <h2>Contacto y comentarios</h2>
+            <p>
+                Si encuentras un error, un enlace que no funciona o quieres sugerir
+                una mejora, puedes escribirnos desde nuestra
+                <a href="contacto.html">página de contacto</a>.
+            </p>
+
             <h2>
                 Herramientas disponibles
             </h2>
@@ -1666,7 +1698,7 @@
 </footer>
 
 
-<script src="script.js?v=20260821-3"></script>
+<script src="script.js?v=20260923-qa1"></script>
 
 </body>
 
